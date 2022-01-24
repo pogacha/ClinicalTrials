@@ -1,4 +1,5 @@
 # ClinicalTrials
 UOA Bioinformatics Web Project
 
-Test
+Spring Boot/Java  
+Angular
