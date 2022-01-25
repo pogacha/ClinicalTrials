@@ -47,4 +47,13 @@ public class Sponsor {
     public void setSponsorStatus(String sponsorStatus) {
         this.sponsorStatus = sponsorStatus;
     }
+
+    @Override
+    public String toString() {
+        return "Sponsor{" +
+                "sponsorName='" + sponsorName + '\'' +
+                ", eudraCTNumber='" + eudraCTNumber + '\'' +
+                ", sponsorStatus='" + sponsorStatus + '\'' +
+                '}';
+    }
 }
