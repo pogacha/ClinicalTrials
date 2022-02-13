@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class TrialListComponent implements OnInit {
   trials!: Observable<Trial[]>;
+  hasUser: boolean = false;
 
   constructor(private trialService: TrialService,
     private router: Router) { }
@@ -26,17 +27,27 @@ export class TrialListComponent implements OnInit {
     this.trials = this.trialService.getTrialsList();
   }
 
-  deleteTrial(id: number) {
-    this.trialService.deleteTrial(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
+  deleteTrial(id: String) {
+    // this.trialService.deleteTrial(id)
+    //   .subscribe(
+    //     data => {
+    //       console.log(data);
+    //       this.reloadData();
+    //     },
+    //     error => console.log(error));
   }
 
-  trialDetails(id: number) {
+  editTrial(id: String) {
+    // this.trialService.deleteTrial(id)
+    //   .subscribe(
+    //     data => {
+    //       console.log(data);
+    //       this.reloadData();
+    //     },
+    //     error => console.log(error));
+  }
+
+  trialDetails(id: String) {
     this.router.navigate(['details', id]);
   }
 }

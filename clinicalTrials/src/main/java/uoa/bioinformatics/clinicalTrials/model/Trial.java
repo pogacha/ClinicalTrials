@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 
@@ -23,22 +24,28 @@ public class Trial {
     private String scopeOfTheTrial;
     @Column(name="estimatedDuration")
     private String estimatedDuration;
-//    private String link;
-//    private String therapeuticArea;
-//    private String numberOfSubjects;
-//    private String firstAddedDate;
+    @Column(name="link")
+    private String link;
+    @Column(name="therapeuticArea")
+    private String therapeuticArea;
+    @Column(name="numberOfSubjects")
+    private int numberOfSubjects;
+    @Column(name="firstAddedDate")
+    private Date firstAddedDate;
 //
-    public Trial(String eudraCTNumber, String trialStatus, String designOfTheTrial, String trialTypePhase, String scopeOfTheTrial, String estimatedDuration) {
+    public Trial(String eudraCTNumber, String trialStatus, String designOfTheTrial, String trialTypePhase,
+                 String scopeOfTheTrial, String estimatedDuration, String link, String therapeuticArea,
+                 int numberOfSubjects, Date firstAddedDate ) {
         this.eudraCTNumber = eudraCTNumber;
         this.trialStatus = trialStatus;
         this.designOfTheTrial = designOfTheTrial;
         this.trialTypePhase = trialTypePhase;
         this.scopeOfTheTrial = scopeOfTheTrial;
         this.estimatedDuration = estimatedDuration;
-//        this.link = link;
-//        this.therapeuticArea = therapeuticArea;
-//        this.numberOfSubjects = numberOfSubjects;
-//        this.firstAddedDate = firstAddedDate;
+        this.link = link;
+        this.therapeuticArea = therapeuticArea;
+        this.numberOfSubjects = numberOfSubjects;
+        this.firstAddedDate = firstAddedDate;
     }
 
     public Trial() {
@@ -93,37 +100,37 @@ public class Trial {
         estimatedDuration = estimatedDuration;
     }
 
-//    public String getLink() {
-//        return link;
-//    }
-//
-//    public void setLink(String link) {
-//        this.link = link;
-//    }
-//
-//    public String getTherapeuticArea() {
-//        return therapeuticArea;
-//    }
-//
-//    public void setTherapeuticArea(String therapeuticArea) {
-//        therapeuticArea = therapeuticArea;
-//    }
-//
-//    public String getNumberOfSubjects() {
-//        return numberOfSubjects;
-//    }
-//
-//    public void setNumberOfSubjects(String numberOfSubjects) {
-//        numberOfSubjects = numberOfSubjects;
-//    }
-//
-//    public String getFirstAddedDate() {
-//        return firstAddedDate;
-//    }
-//
-//    public void setFirstAddedDate(String firstAddedDate) {
-//        firstAddedDate = firstAddedDate;
-//    }
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getTherapeuticArea() {
+        return therapeuticArea;
+    }
+
+    public void setTherapeuticArea(String therapeuticArea) {
+        therapeuticArea = therapeuticArea;
+    }
+
+    public int getNumberOfSubjects() {
+        return numberOfSubjects;
+    }
+
+    public void setNumberOfSubjects(int numberOfSubjects) {
+        numberOfSubjects = numberOfSubjects;
+    }
+
+    public Date getFirstAddedDate() {
+        return firstAddedDate;
+    }
+
+    public void setFirstAddedDate(Date firstAddedDate) {
+        firstAddedDate = firstAddedDate;
+    }
 
     @Override
     public String toString() {

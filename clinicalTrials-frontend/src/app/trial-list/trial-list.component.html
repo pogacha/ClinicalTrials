@@ -1,30 +1,31 @@
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h2>Trials List</h2>
-    </div>
-    <div class="panel-body">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>EudraCTNumber</th>
-                    <th>Sponsor</th>
-                    <th>ΤrialStatus</th>
-                    <th>DesignOfTheTrial</th>
-                    <th>TrialTypePhase</th>
-                    <th>ScopeOfTheTrial</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let trial of trials | async">
-                    <td>{{trial.eudraCTNumber}}</td>
-                    <!-- <td>{{employee.lastName}}</td>
-                    <td>{{employee.emailId}}</td> -->
-                    <!-- <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-                        <button (click)="employeeDetails(employee.id)" class="btn btn-info"
-                            style="margin-left: 10px">Details</button> </td>-->
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div>
+    <h2>Trials List</h2>
+</div>
+<div>
+    <mat-list>
+        <mat-list-item *ngFor="let trial of trials | async">
+            <div class="trial-text-container">
+                <h4 mat-line>{{trial.eudraCTNumber}}</h4>
+                <p mat-line> {{trial.trialStatus}} </p>
+                <p mat-line> {{trial.designOfTheTrial}} </p>
+                <p mat-line> {{trial.trialTypePhase}} </p>
+                <p mat-line> {{trial.scopeOfTheTrial}} </p>
+            </div>
+            <div class="button-container">
+                <button [disabled]="!hasUser" mat-icon-button color="primary" (click)="deleteTrial(trial.eudraCTNumber)"
+                    aria-label="Delete Trial" title="Delete Trial">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-icon-button [disabled]="!hasUser" color="primary" (click)="editTrial(trial.eudraCTNumber)"
+                    aria-label="Edit Trial" title="Edit Trial">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button (click)="trialDetails(trial.eudraCTNumber)" mat-icon-button color="primary"
+                    aria-label="Show details of Trial" title="Show details for Trial">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </div>
+            <mat-divider [inset]="true" *ngIf="!trial"></mat-divider>
+        </mat-list-item>
+    </mat-list>
 </div>

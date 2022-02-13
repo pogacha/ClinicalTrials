@@ -2,3 +2,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*override material */
+.mat-list-base .mat-list-item.mat-multi-line .mat-list-item-content, .mat-list-base .mat-list-option.mat-multi-line .mat-list-item-content {
+    padding: 4px;
+}

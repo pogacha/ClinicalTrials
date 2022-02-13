@@ -1,0 +1,16 @@
+.trial-text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+}
+
+.trial-text-container  h4, .trial-text-container p {
+        margin: 0px 8px;
+}
+
+.button-container {
+    margin-left: auto;
+}
+

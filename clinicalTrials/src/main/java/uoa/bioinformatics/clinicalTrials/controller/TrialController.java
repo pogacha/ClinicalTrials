@@ -59,6 +59,11 @@ public class TrialController {
         trial.setTrialTypePhase(trialDetails.getTrialTypePhase());
         trial.setScopeOfTheTrial(trialDetails.getScopeOfTheTrial());
         trial.setEstimatedDuration(trialDetails.getEstimatedDuration());
+        trial.setLink(trialDetails.getLink());
+        trial.setTherapeuticArea(trialDetails.getTherapeuticArea());
+        trial.setNumberOfSubjects(trialDetails.getNumberOfSubjects());
+        trial.setFirstAddedDate(trialDetails.getFirstAddedDate());
+
         final Trial updatedTrial = trialRepository.save(trial);
         return ResponseEntity.ok(updatedTrial);
     }

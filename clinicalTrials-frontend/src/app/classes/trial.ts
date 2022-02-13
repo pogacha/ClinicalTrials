@@ -6,5 +6,9 @@ export class Trial {
     trialTypePhase!: string;
     scopeOfTheTrial!: string;
     estimatedDuration!: string;
+    link!: string;
+    therapeuticArea!: string;
+    numberOfSubjects!: number;
+    firstAddedDate!: Date;
 
 }
