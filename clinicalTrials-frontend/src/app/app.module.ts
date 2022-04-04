@@ -20,6 +20,9 @@ import { CreateTrialComponent } from './create-trial/create-trial.component';
 import { TrialDetailsComponent } from './trial-details/trial-details.component';
 import { TrialListComponent } from './trial-list/trial-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HeaderComponent } from './header/header.component';
+import { SmallDialogComponent } from './small-dialog/small-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TrialComponent,
     CreateTrialComponent,
     TrialDetailsComponent,
-    TrialListComponent
+    TrialListComponent,
+    PageNotFoundComponent,
+    HeaderComponent,
+    SmallDialogComponent
   ],
   imports: [
     BrowserModule,

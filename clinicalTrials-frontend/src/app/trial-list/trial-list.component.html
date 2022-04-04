@@ -1,57 +1,47 @@
-<div>
-    <h2 style="text-align: center;">Trials List</h2>
-</div>
-<br>
-<br>
+<section>
+    <h2>Trials</h2>
+</section>
 <div>
     <mat-list>
+        <mat-list-item class="header">
+            <h4>EudraCTNumber</h4>
+            <h4>Trial Status</h4>
+            <h4>Design of the Trial</h4>
+            <h4>Trial Type Phase</h4>
+            <h4>Scope of the Trial</h4>
+            <h4>Estimated Duration</h4>
+            <h4>Link</h4>
+            <h4>therapeutic Area</h4>
+            <h4>Number of Subjects</h4>
+            <h4>First Added Date</h4>
+            <h4>Tools</h4>
+        </mat-list-item>
         <mat-list-item *ngFor="let trial of trials | async">
             <div class="trial-text-container">
-                <table>
-                    <tr >
-                        <th colspan ="100%" style="text-align: center;">
-                            Trials List
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>eudraCTNumber</th>
-                        <th>Trial Status</th>
-                        <th>Design of the Trial</th>
-                        <th>Trial Type Phase</th>
-                        <th>Scope of the Trial</th>
-                        <th>Estimated Duration</th>
-                        <th >Link</th>
-                        <th>Therapeutic Area</th>
-                        <th>Number of Subjects</th>
-                        <th>First Added Date</th>
-                    </tr>
-                    <tr>
-                        <td >{{trial.eudraCTNumber}}</td>
-                        <td > {{trial.trialStatus}} </td>
-                        <td > {{trial.designOfTheTrial}} </td>
-                        <td > {{trial.trialTypePhase}} </td>
-                        <td > {{trial.scopeOfTheTrial}} </td>
-                        <td> {{trial.estimatedDuration}}</td>
-                        <td>{{trial.link}}</td>
-                        <td>{{trial.therapeuticArea}}</td>
-                        <td>{{trial.numberOfSubjects}}</td>
-                        <td>{{trial.firstAddedDate}}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="button-container">
-                <button [disabled]="!hasUser" mat-icon-button color="primary" (click)="deleteTrial(trial.eudraCTNumber)"
-                    aria-label="Delete Trial" title="Delete Trial">
-                    <mat-icon>delete</mat-icon>
-                </button>
-                <button mat-icon-button ="!hasUser" color="primary" (click)="editTrial(trial.eudraCTNumber)"
-                    aria-label="Edit Trial" title="Edit Trial">
-                    <mat-icon>edit</mat-icon>
-                </button>
-                <button (click)="trialDetails(trial.eudraCTNumber)" mat-icon-button color="primary"
-                    aria-label="Show details of Trial" title="Show details for Trial">
-                    <mat-icon>more_vert</mat-icon>
-                </button>
+                <h4 mat-line>{{trial.eudraCTNumber}}</h4>
+                <p mat-line> {{trial.trialStatus}} </p>
+                <p mat-line> {{trial.designOfTheTrial}} </p>
+                <p mat-line> {{trial.trialTypePhase}} </p>
+                <p mat-line> {{trial.scopeOfTheTrial}} </p>
+                <p mat-line> {{trial.estimatedDuration}}</p>
+                <p mat-line>{{trial.link}}</p>
+                <p mat-line>{{trial.therapeuticArea}}</p>
+                <p mat-line>{{trial.numberOfSubjects}}</p>
+                <p mat-line>{{trial.firstAddedDate | date:'dd-MM-yyyy'}}</p>
+                <div class="button-container">
+                    <button [disabled]="!hasUser" mat-icon-button color="primary"
+                        (click)="moreTrial(trial.eudraCTNumber)" aria-label="More info Trial" title="more info Trial">
+                        <mat-icon>more</mat-icon>
+                    </button>
+                    <button [disabled]="!hasUser" mat-icon-button color="primary"
+                        (click)="deleteTrial(trial.eudraCTNumber)" aria-label="Delete Trial" title="Delete Trial">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button [disabled]="!hasUser" color="primary"
+                        (click)="editTrial(trial.eudraCTNumber)" aria-label="Edit Trial" title="Edit Trial">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </div>
             </div>
             <mat-divider [inset]="true" *ngIf="!trial"></mat-divider>
         </mat-list-item>
