@@ -19,6 +19,7 @@ target/
 *.iml
 *.ipr
 
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -35,4 +36,8 @@ build/
 ### angular ###
 **/node_modules/
 **/.angular/
+
+
+### Sensitive Data ###
+!**/src/main/resources/application.properties
 
