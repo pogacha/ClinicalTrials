@@ -5,6 +5,8 @@ import { Trial } from "../classes/trial";
 import { Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SmallDialogComponent } from '../small-dialog/small-dialog.component';
+import { TrialDetailsComponent } from '../trial-details/trial-details.component';
+import { TrialFormComponent } from '../trial-form/trial-form.component';
 
 
 
@@ -15,7 +17,7 @@ import { SmallDialogComponent } from '../small-dialog/small-dialog.component';
 })
 export class TrialListComponent implements OnInit {
   trials!: Observable<Trial[]>;
-  hasUser: boolean = false;
+  hasUser: boolean = true;
 
 
   constructor(private trialService: TrialService,
@@ -31,29 +33,66 @@ export class TrialListComponent implements OnInit {
   }
 
   moreTrial(id: String) {
-    // this.trialService.deleteTrial(id)
-    //   .subscribe(
-    //     data => {
-    //       console.log(data);
-    //       this.reloadData();
-    //     },
-    //     error => console.log(error));
+    this.dialog.open(TrialDetailsComponent, {
+      data: {
+        trial: id,
+      },
+    });
+  }
+
+  addNewTrial() {
+    let dialogRef = this.dialog.open(TrialFormComponent, {
+    });
+
+    // dialogRef.afterClosed().subscribe(accepted => {
+    //   if (accepted) {
+    //     this.trialService.deleteTrial(id)
+    //       .subscribe(
+    //         data => {
+    //           let dialogRef1 = this.dialog.open(SmallDialogComponent, {
+    //             data: {
+    //               title: 'Delete Trial',
+    //               text: "Trial " + id + " has been deleted",
+    //               hasButtons: false,
+    //               buttonName: ''
+    //             },
+    //           });
+    //           this.reloadData();
+    //         },
+    //         error => console.log(error));
+    //   }
+    // });
   }
 
   deleteTrial(id: String) {
-    this.dialog.open(SmallDialogComponent, {
+    let dialogRef = this.dialog.open(SmallDialogComponent, {
       data: {
-        text: 'Are you sure you want to delete',
-        name: id,
+        title: 'Delete Trial',
+        text: "Are you sure you want to delete trial (" + id + ") ?",
+        hasButtons: true,
+        buttonName: 'Delete'
       },
     });
-    // this.trialService.deleteTrial(id)
-    //   .subscribe(
-    //     data => {
-    //       console.log(data);
-    //       this.reloadData();
-    //     },
-    //     error => console.log(error));
+
+    dialogRef.afterClosed().subscribe(accepted => {
+      if (accepted) {
+        this.trialService.deleteTrial(id)
+          .subscribe(
+            data => {
+              let dialogRef1 = this.dialog.open(SmallDialogComponent, {
+                data: {
+                  title: 'Delete Trial',
+                  text: "Trial " + id + " has been deleted",
+                  hasButtons: false,
+                  buttonName: ''
+                },
+              });
+              this.reloadData();
+            },
+            error => console.log(error));
+      }
+    });
+
   }
 
   editTrial(id: String) {
@@ -71,3 +110,7 @@ export class TrialListComponent implements OnInit {
   }
 
 }
+function TrialFormComponnent(TrialFormComponnent: any, arg1: {}) {
+  throw new Error('Function not implemented.');
+}
+

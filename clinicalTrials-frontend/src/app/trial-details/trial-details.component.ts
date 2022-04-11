@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Trial } from '../classes/trial';
+import { TrialService } from '../trial.service';
 
 @Component({
   selector: 'app-trial-details',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trial-details.component.css']
 })
 export class TrialDetailsComponent implements OnInit {
-
-  constructor() { }
+  trial!: Trial;
+  constructor(private trialService: TrialService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
+    console.log(this.data)
+    this.trialService.getTrial(this.data.trial)
+      .subscribe(
+        data => {
+          this.trial = data;
+        },
+        error => console.log(error));
   }
 
 }

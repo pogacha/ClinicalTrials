@@ -29,17 +29,14 @@ public class TrialController {
 
     @GetMapping("/trials")
     public List<Trial> getAllTrials() {
-        System.out.println("trials");
-        System.out.println(trialRepository.findAll());
-
         return trialRepository.findAll();
     }
 
     @GetMapping("/trials/{id}")
-    public ResponseEntity<Trial> getTrialById(@PathVariable(value = "eudraCTNumber") String eudraCTNumber)
+    public ResponseEntity<Trial> getTrialById(@PathVariable("id") String eudraCTNumber)
             throws ResourceNotFoundException {
         Trial trial = trialRepository.findById(eudraCTNumber)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + eudraCTNumber));
+                .orElseThrow(() -> new ResourceNotFoundException("Trial not found for this id :: " + eudraCTNumber));
         return ResponseEntity.ok().body(trial);
     }
 

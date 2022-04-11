@@ -12,8 +12,7 @@ export class TrialService {
     constructor(private http: HttpClient) { }
 
     getTrial(id: number): Observable<any> {
-        console.log(this.http.get(`${this.baseUrl}/${id}`));
-        return this.http.get(`${this.baseUrl}/${id}`);
+        return this.http.get(`${this.baseUrl}/trials/${id}`);
     }
 
     createTrial(trial: Object): Observable<Object> {
@@ -24,8 +23,8 @@ export class TrialService {
         return this.http.put(`${this.baseUrl}/${id}`, value);
     }
 
-    deleteTrial(id: number): Observable<any> {
-        return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+    deleteTrial(id: String): Observable<any> {
+        return this.http.delete(`${this.baseUrl}/trials/${id}`, { responseType: 'text' });
     }
 
     getTrialsList(): Observable<any> {

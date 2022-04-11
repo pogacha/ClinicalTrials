@@ -12,25 +12,17 @@
   margin: 0px 8px;
 }
 
-.button-container {}
+.trials-section {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.trials-section h2 {
+  margin: 0;
+}
 
-
-/* table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  } */
 
 button:hover {
   cursor: pointer;

@@ -11,6 +11,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 import { AppComponent } from './app.component';
@@ -23,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './header/header.component';
 import { SmallDialogComponent } from './small-dialog/small-dialog.component';
+import { TrialFormComponent } from './trial-form/trial-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,8 @@ import { SmallDialogComponent } from './small-dialog/small-dialog.component';
     TrialListComponent,
     PageNotFoundComponent,
     HeaderComponent,
-    SmallDialogComponent
+    SmallDialogComponent,
+    TrialFormComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +52,14 @@ import { SmallDialogComponent } from './small-dialog/small-dialog.component';
     MatDividerModule,
     MatListModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
