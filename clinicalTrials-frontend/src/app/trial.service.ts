@@ -20,7 +20,8 @@ export class TrialService {
     }
 
     updateTrial(id: number, value: any): Observable<Object> {
-        return this.http.put(`${this.baseUrl}/${id}`, value);
+        console.log(id, value)
+        return this.http.put(`${this.baseUrl}/trials/${id}`, value);
     }
 
     deleteTrial(id: String): Observable<any> {

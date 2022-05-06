@@ -96,13 +96,11 @@ export class TrialListComponent implements OnInit {
   }
 
   editTrial(id: String) {
-    // this.trialService.deleteTrial(id)
-    //   .subscribe(
-    //     data => {
-    //       console.log(data);
-    //       this.reloadData();
-    //     },
-    //     error => console.log(error));
+    let dialogRef = this.dialog.open(TrialFormComponent, {
+      data: {
+        trial: id
+      },
+    });
   }
 
   trialDetails(id: String) {

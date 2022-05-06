@@ -40,26 +40,31 @@ public class TrialController {
         return ResponseEntity.ok().body(trial);
     }
 
-    @PostMapping("/trials")
-    public Trial createTrial(@Valid @RequestBody Trial trial) {
-        return trialRepository.save(trial);
+    @PostMapping(value = "/trials", consumes = "application/json", produces = "application/json")
+    public String createTrial(@RequestBody Trial trial) {
+        System.out.println("trialDetails:" + trial + " ");
+//        return trialRepository.save(trial);
+        return "Hello" + trial.getDesignOfTheTrial();
     }
 
+
     @PutMapping("/trials/{id}")
-    public ResponseEntity<Trial> updateTrial(@PathVariable(value = "eudraCTNumber") String eudraCTNumber,
-                                                   @Valid @RequestBody Trial trialDetails) throws ResourceNotFoundException {
+    public ResponseEntity<Trial> updateTrial(@PathVariable(value = "id") String eudraCTNumber,
+                                                   @RequestBody Trial newTrialDetails) throws ResourceNotFoundException {
+        System.out.println("trialDetails:" + newTrialDetails);
         Trial trial = trialRepository.findById(eudraCTNumber)
                 .orElseThrow(() -> new ResourceNotFoundException("Trial not found for this eudraCTNumber :: " + eudraCTNumber));
 
-        trial.setTrialStatus(trialDetails.getTrialStatus());
-        trial.setDesignOfTheTrial(trialDetails.getDesignOfTheTrial());
-        trial.setTrialTypePhase(trialDetails.getTrialTypePhase());
-        trial.setScopeOfTheTrial(trialDetails.getScopeOfTheTrial());
-        trial.setEstimatedDuration(trialDetails.getEstimatedDuration());
-        trial.setLink(trialDetails.getLink());
-        trial.setTherapeuticArea(trialDetails.getTherapeuticArea());
-        trial.setNumberOfSubjects(trialDetails.getNumberOfSubjects());
-        trial.setFirstAddedDate(trialDetails.getFirstAddedDate());
+        System.out.println("trial" + trial);
+//        trial.setTrialStatus(trialDetails.getTrialStatus());
+//        trial.setDesignOfTheTrial(trialDetails.getDesignOfTheTrial());
+//        trial.setTrialTypePhase(trialDetails.getTrialTypePhase());
+//        trial.setScopeOfTheTrial(trialDetails.getScopeOfTheTrial());
+//        trial.setEstimatedDuration(trialDetails.getEstimatedDuration());
+//        trial.setLink(trialDetails.getLink());
+//        trial.setTherapeuticArea(trialDetails.getTherapeuticArea());
+//        trial.setNumberOfSubjects(trialDetails.getNumberOfSubjects());
+//        trial.setFirstAddedDate(trialDetails.getFirstAddedDate());
 
         final Trial updatedTrial = trialRepository.save(trial);
         return ResponseEntity.ok(updatedTrial);

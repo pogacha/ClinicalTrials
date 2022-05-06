@@ -13,7 +13,6 @@ export class TrialDetailsComponent implements OnInit {
   constructor(private trialService: TrialService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    console.log(this.data)
     this.trialService.getTrial(this.data.trial)
       .subscribe(
         data => {
