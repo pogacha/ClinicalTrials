@@ -10,6 +10,18 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+
+/* Forms*/
+.clinical-trials-form {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-form-field {
+    margin: 4px 16px;
+}
+
 /*override material */
 .mat-list-base .mat-list-item.mat-multi-line .mat-list-item-content,
 .mat-list-base .mat-list-option.mat-multi-line .mat-list-item-content {

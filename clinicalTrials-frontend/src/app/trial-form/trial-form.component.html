@@ -2,56 +2,51 @@
 <mat-dialog-content class="mat-typography">
     <h3>Basic Info</h3>
     <mat-divider></mat-divider>
-    <!-- <form>
-         <mat-form-field appearance="legacy" req>
+    <form class="clinical-trials-form">
+        <mat-form-field appearance="legacy" req>
             <mat-label>EudraCT Number</mat-label>
-            <input matInput placeholder="EudraCTNumber" [name]="trial.eudraCTNumber" required>
+            <input matInput placeholder="EudraCTNumber" required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
             <mat-label>Status</mat-label>
-            <input matInput placeholder="trialStatus" [name]="trial.trialStatus" required>
+            <input matInput placeholder="trialStatus" required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
             <mat-label>Link</mat-label>
-            <input matInput placeholder="link" [name]="trial.link" required>
+            <input matInput placeholder="link" required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
             <mat-label>Type Phase</mat-label>
-            <input matInput placeholder="trialTypePhase" [name]="trial.trialTypePhase" required>
+            <input matInput placeholder="trialTypePhase" required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
             <mat-label>Design Of The Trial</mat-label>
-            <input matInput placeholder="Design Of The Trial" [name]="trial.designOfTheTrial" required>
+            <input matInput placeholder="Design Of The Trial" required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
             <mat-label>Number Of Subjects</mat-label>
-            <input matInput placeholder="Number Of Subjects" [name]="trial.numberOfSubjects" required>
+            <input matInput placeholder="Number Of Subjects" required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
             <mat-label>Therapeutic Area</mat-label>
-            <input matInput placeholder="Therapeutic Area" [name]="trial.therapeuticArea" required>
+            <input matInput placeholder="Therapeutic Area" required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
             <mat-label>Estimated Duration</mat-label>
-            <input matInput placeholder="Estimated Duration" [name]="trial.estimatedDuration" required>
+            <input matInput placeholder="Estimated Duration" required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
             <mat-label>Scope Of The Trial</mat-label>
-            <input matInput placeholder="EudraCTNumber" [name]="trial.scopeOfTheTrial" required>
+            <input matInput placeholder="EudraCTNumber" required>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" [name]="trial.firstAddedDate">
+            <input matInput [matDatepicker]="picker">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-
-    </form>-->
-    <!-- <mat-form-field appearance="fill">
-        <mat-label>Input</mat-label>
-        <input matInput>
-    </mat-form-field> -->
+    </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Close</button>
