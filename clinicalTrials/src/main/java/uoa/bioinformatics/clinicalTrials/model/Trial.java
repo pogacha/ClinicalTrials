@@ -1,5 +1,7 @@
 package uoa.bioinformatics.clinicalTrials.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import javax.persistence.Entity;
 import javax.persistence.Column;
 import javax.persistence.Table;
@@ -32,7 +34,8 @@ public class Trial {
     private int numberOfSubjects;
     @Column(name="firstAddedDate")
     private Date firstAddedDate;
-//
+
+    @JsonCreator
     public Trial(String eudraCTNumber, String trialStatus, String designOfTheTrial, String trialTypePhase,
                  String scopeOfTheTrial, String estimatedDuration, String link, String therapeuticArea,
                  int numberOfSubjects, Date firstAddedDate ) {
@@ -50,7 +53,6 @@ public class Trial {
 
     public Trial() {
     }
-
 
     public void setEudraCTNumber(String eudraCTNumber) {
         this.eudraCTNumber = eudraCTNumber;

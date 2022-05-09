@@ -73,6 +73,10 @@
             },
             "development": {
               "browserTarget": "clinicalTrials-frontend:build:development"
+            },
+            "options": {
+              "browserTarget": "clinicalTrials-frontend:build",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

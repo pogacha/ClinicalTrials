@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Trial } from '../classes/trial';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TrialService } from '../trial.service';
 
 
@@ -13,8 +12,8 @@ import { TrialService } from '../trial.service';
 export class TrialFormComponent implements OnInit {
   title: string = '';
   buttonName: string = '';
-  trial!: Trial;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private trialService: TrialService) { }
+  trial!: any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private trialService: TrialService, private dialogRef: MatDialogRef<TrialFormComponent>) { }
   trialForm !: any;
   isLoading = true;
   isUpdate = false;
@@ -45,6 +44,7 @@ export class TrialFormComponent implements OnInit {
         );
 
     } else {
+      this.isLoading = false;
       this.title = 'Add Trial';
       this.buttonName = 'Add';
       this.trialForm = this.formBuilder.group({
@@ -66,14 +66,22 @@ export class TrialFormComponent implements OnInit {
   onSubmit(): void {
     // Process checkout data here
     let trialDetails = this.trialForm.value;
-    console.log(trialDetails);
     if (this.isUpdate) {
       this.trialService.updateTrial(this.trialForm.value.eudraCTNumber, trialDetails)
         .subscribe(
           data => {
-            // this.trial = data;
+            this.trial = data;
+            this.dialogRef.close(data);
           },
-          error => console.log(error));
+          error => this.dialogRef.close(false));
+    } else {
+      this.trialService.createTrial(trialDetails)
+        .subscribe(
+          data => {
+            this.trial = data;
+            this.dialogRef.close(data);
+          },
+          error => this.dialogRef.close(false));
     }
   }
 }

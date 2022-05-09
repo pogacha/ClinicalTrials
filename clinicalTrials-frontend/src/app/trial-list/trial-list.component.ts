@@ -7,6 +7,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SmallDialogComponent } from '../small-dialog/small-dialog.component';
 import { TrialDetailsComponent } from '../trial-details/trial-details.component';
 import { TrialFormComponent } from '../trial-form/trial-form.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -21,7 +22,7 @@ export class TrialListComponent implements OnInit {
 
 
   constructor(private trialService: TrialService,
-    private router: Router, private dialog: MatDialog) { }
+    private router: Router, private dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.reloadData();
@@ -43,25 +44,14 @@ export class TrialListComponent implements OnInit {
   addNewTrial() {
     let dialogRef = this.dialog.open(TrialFormComponent, {
     });
-
-    // dialogRef.afterClosed().subscribe(accepted => {
-    //   if (accepted) {
-    //     this.trialService.deleteTrial(id)
-    //       .subscribe(
-    //         data => {
-    //           let dialogRef1 = this.dialog.open(SmallDialogComponent, {
-    //             data: {
-    //               title: 'Delete Trial',
-    //               text: "Trial " + id + " has been deleted",
-    //               hasButtons: false,
-    //               buttonName: ''
-    //             },
-    //           });
-    //           this.reloadData();
-    //         },
-    //         error => console.log(error));
-    //   }
-    // });
+    dialogRef.afterClosed().subscribe(success => {
+      if (success) {
+        this._snackBar.open('Trial Added!', 'Close');
+        this.reloadData();
+      } else {
+        this._snackBar.open('Trial did not Added. Please Try again', 'Close');
+      }
+    });
   }
 
   deleteTrial(id: String) {
@@ -100,6 +90,15 @@ export class TrialListComponent implements OnInit {
       data: {
         trial: id
       },
+    });
+
+    dialogRef.afterClosed().subscribe(success => {
+      if (success) {
+        this._snackBar.open('Trial Updated!', 'Close');
+        this.reloadData()
+      } else {
+        this._snackBar.open('Trial did not Updated. Please Try again', 'Close');
+      }
     });
   }
 

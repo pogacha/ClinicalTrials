@@ -16,11 +16,10 @@ export class TrialService {
     }
 
     createTrial(trial: Object): Observable<Object> {
-        return this.http.post(`${this.baseUrl}`, trial);
+        return this.http.post(`${this.baseUrl}/trials`, trial);
     }
 
     updateTrial(id: number, value: any): Observable<Object> {
-        console.log(id, value)
         return this.http.put(`${this.baseUrl}/trials/${id}`, value);
     }
 
