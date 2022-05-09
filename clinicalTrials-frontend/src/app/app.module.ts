@@ -17,7 +17,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 import { AppComponent } from './app.component';
@@ -31,6 +32,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HeaderComponent } from './header/header.component';
 import { SmallDialogComponent } from './small-dialog/small-dialog.component';
 import { TrialFormComponent } from './trial-form/trial-form.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { TrialFormComponent } from './trial-form/trial-form.component';
     PageNotFoundComponent,
     HeaderComponent,
     SmallDialogComponent,
-    TrialFormComponent
+    TrialFormComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { TrialFormComponent } from './trial-form/trial-form.component';
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [
     MatDatepickerModule,

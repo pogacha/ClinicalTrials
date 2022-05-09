@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { TrialService } from "../trial.service";
 import { Trial } from "../classes/trial";
 import { Router } from '@angular/router';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SmallDialogComponent } from '../small-dialog/small-dialog.component';
 import { TrialDetailsComponent } from '../trial-details/trial-details.component';
 import { TrialFormComponent } from '../trial-form/trial-form.component';

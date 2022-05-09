@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Log In</h2>
+<mat-dialog-content class="mat-typography">
+    <h3>Please add your credentials:</h3>
+    <div class="example-container">
+        <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Username</mat-label>
+            <input matInput class="example-right-align" placeholder="Username">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button cdkFocusInitial (click)="login()">Log In</button>
+</mat-dialog-actions>
