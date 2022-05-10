@@ -1,0 +1,18 @@
+<p>protocol works!</p>
+
+<div>
+    <mat-list>
+        <mat-list-item class="header">
+            <h4>ProtocolCodeNumber</h4>
+            <h4>EudraCTNumber</h4>
+ 
+        </mat-list-item>
+        <mat-list-item *ngFor="let protocol of protocols | async">
+            <div class="protocol-text-container">
+                <p mat-line> {{protocolCodeNumber}} </p>
+                <p mat-line> {{trial.eudraCTNumber}} </p>
+                <p mat-line> {{fullTitle}} </p>
+                <p mat-line> {{simplifiedTitle}} </p>
+                <p mat-line> {{mainObjective}}</p>
+                <p mat-line>{{safetyObjective}}</p>
+

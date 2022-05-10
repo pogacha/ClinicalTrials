@@ -33,6 +33,7 @@ import { HeaderComponent } from './header/header.component';
 import { SmallDialogComponent } from './small-dialog/small-dialog.component';
 import { TrialFormComponent } from './trial-form/trial-form.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { ProtocolComponent } from './protocol/protocol.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LogInComponent } from './log-in/log-in.component';
     HeaderComponent,
     SmallDialogComponent,
     TrialFormComponent,
-    LogInComponent
+    LogInComponent,
+    ProtocolComponent
   ],
   imports: [
     BrowserModule,

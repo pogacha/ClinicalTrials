@@ -17,5 +17,8 @@ export class MainPageComponent implements OnInit {
     this.router.navigate(['/trials']);
   }
 
+  navigateToProtocol(): void {
+    this.router.navigate(['/protocol']);
+  }
 
 }
