@@ -41,14 +41,9 @@ public class UserController {
     public User loginUser(@RequestBody Map<String, String> credentials) throws ResourceNotFoundException {
         User user = userRepository.findById(credentials.get("userId"))
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + credentials.get("userId")));
-        System.out.println(user.getPass() + " "+ credentials.get("pass"));
         if (credentials.get("pass").equals(user.getPass())) {
-            System.out.println(user.getUserName());
             return user;
         } else {
-            System.out.println(
-                    ":("
-            );
             return null;
         }
     }
