@@ -5,6 +5,7 @@ import { CreateTrialComponent } from './create-trial/create-trial.component';
 import { TrialListComponent } from './trial-list/trial-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'trials', component: TrialListComponent },
   { path: 'add', component: CreateTrialComponent },
   { path: 'details/:id', component: TrialDetailsComponent },
+  { path: 'user', component: UserDetailsComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

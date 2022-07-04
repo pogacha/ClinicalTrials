@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LogInComponent } from '../log-in/log-in.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from '../user.service';
+import { User } from '../classes/user';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +13,17 @@ import { UserService } from '../user.service';
 })
 export class HeaderComponent implements OnInit {
   hasUser: boolean = false;
-  username: string = 'User Name'
+  username: string = 'User Name';
+  userObservable: any;
+
   constructor(private router: Router, private dialog: MatDialog,
     private _snackBar: MatSnackBar, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userObservable = this.userService.getUser();
+    this.userObservable.subscribe((userData: User) => {
+      this.hasUser = (!!userData.userId);
+    });
   }
 
   goToMain(): void {
@@ -48,9 +55,12 @@ export class HeaderComponent implements OnInit {
         this.hasUser = true;
         this.username = user.userName;
         this.userService.setUser(user)
-        console.log(user)
       }
     });
+  }
+
+  navigateToUser(): void {
+    this.router.navigate(['/user']);
   }
 
 }

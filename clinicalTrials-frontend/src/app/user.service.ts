@@ -25,8 +25,14 @@ export class UserService {
         return this.http.post(`${this.baseUrl}/login`, user);
     }
 
-    getUser(): User {
-        return this.user;
+    getUser(): any {
+        const userObservable = new Observable(observer => {
+            setTimeout(() => {
+                observer.next(this.user);
+            }, 500);
+        });
+
+        return userObservable;
     }
 
     setUser(user: User): void {

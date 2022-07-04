@@ -7,6 +7,11 @@
             <mat-icon>person</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
+            <button *ngIf="hasUser" mat-menu-item (click)="navigateToUser()">
+                <mat-icon>account_circle</mat-icon>
+                <span>Navigate To User Details</span>
+            </button>
+            <mat-divider *ngIf="hasUser"></mat-divider>
             <button *ngIf="hasUser" mat-menu-item (click)="logout()">
                 <mat-icon>logout</mat-icon>
                 <span>Log Out</span>

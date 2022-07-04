@@ -1,0 +1,28 @@
+<mat-spinner *ngIf="this.isLoading"></mat-spinner>
+<div *ngIf="!this.isLoading">
+    <h2>User Info</h2>
+    <mat-divider></mat-divider>
+    <mat-list>
+        <mat-list-item>User Id: {{user.userId}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>User Name: {{user.userName}} </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Organisation: {{user.organisation}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Phone: {{user.phone}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Email: {{user.email}} </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Address: {{user.address}}</mat-list-item>
+    </mat-list>
+
+    <h3>Sponsor</h3>
+    <mat-divider></mat-divider>
+    <mat-list>
+        <mat-list-item>Name Of Supporting Organisation: </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Name: </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Status: </mat-list-item>
+    </mat-list>
+</div>

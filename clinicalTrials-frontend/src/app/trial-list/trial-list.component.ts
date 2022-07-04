@@ -8,6 +8,8 @@ import { SmallDialogComponent } from '../small-dialog/small-dialog.component';
 import { TrialDetailsComponent } from '../trial-details/trial-details.component';
 import { TrialFormComponent } from '../trial-form/trial-form.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserService } from '../user.service';
+import { User } from '../classes/user';
 
 
 
@@ -18,15 +20,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class TrialListComponent implements OnInit {
   trials!: Observable<Trial[]>;
-  hasUser: boolean = true;
+  hasUser: boolean = false;
+  userObservable: any;
 
 
   constructor(private trialService: TrialService,
-    private router: Router, private dialog: MatDialog, private _snackBar: MatSnackBar) { }
+    private router: Router, private dialog: MatDialog, private _snackBar: MatSnackBar, private userService: UserService) { }
 
   ngOnInit() {
     this.reloadData();
-
+    this.userObservable = this.userService.getUser();
+    this.userObservable.subscribe((userData: User) => {
+      this.hasUser = (!!userData.userId);
+    });
   }
 
   reloadData() {
