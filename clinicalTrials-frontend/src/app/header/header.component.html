@@ -1,19 +1,21 @@
 <mat-toolbar>
     <button mat-button (click)="goToMain()">Clinical Trials</button>
-    <span *ngIf="hasUser">{{username}}</span>
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="person-icon user-button"
-        aria-label="Person icon-button with share icon">
-        <mat-icon>person</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-        <button *ngIf="hasUser" mat-menu-item (click)="logout()">
-            <mat-icon>logout</mat-icon>
-            <span>Log Out</span>
+    <div class="user-container">
+        <span *ngIf="hasUser">{{this.username}}</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="person-icon user-button"
+            aria-label="Person icon-button with share icon">
+            <mat-icon>person</mat-icon>
         </button>
-        <button *ngIf="!hasUser" mat-menu-item (click)="login()">
-            <mat-icon>login</mat-icon>
-            <span>Log In</span>
-        </button>
-    </mat-menu>
+        <mat-menu #menu="matMenu">
+            <button *ngIf="hasUser" mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                <span>Log Out</span>
+            </button>
+            <button *ngIf="!hasUser" mat-menu-item (click)="login()">
+                <mat-icon>login</mat-icon>
+                <span>Log In</span>
+            </button>
+        </mat-menu>
+    </div>
 
 </mat-toolbar>

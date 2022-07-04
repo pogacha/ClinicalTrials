@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LogInComponent } from '../log-in/log-in.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class HeaderComponent implements OnInit {
   hasUser: boolean = false;
   username: string = 'User Name'
-  constructor(private router: Router, private dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  constructor(private router: Router, private dialog: MatDialog,
+    private _snackBar: MatSnackBar, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -22,18 +24,31 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    // log out
     this.hasUser = false;
+    this.username = '';
+    this.userService.setUser({
+      userId: '',
+      sponsorId: '',
+      userName!: '',
+      pass!: '',
+      organisation!: '',
+      phone!: '',
+      email!: '',
+      address!: ''
+    })
   }
 
   login(): void {
     let dialogRef = this.dialog.open(LogInComponent);
 
-    dialogRef.afterClosed().subscribe(success => {
-      if (!success) {
+    dialogRef.afterClosed().subscribe(user => {
+      if (!user) {
         this._snackBar.open('There was error during Login. Please Try Again or contact the administrator!', 'Close');
       } else {
         this.hasUser = true;
+        this.username = user.userName;
+        this.userService.setUser(user)
+        console.log(user)
       }
     });
   }
