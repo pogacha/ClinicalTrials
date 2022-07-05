@@ -1,10 +1,11 @@
 package uoa.bioinformatics.clinicalTrials.controller;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,25 +18,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-@RestController @CrossOrigin
-@RequestMapping(value="/api/v1", produces = "application/json")
+@RestController
+@CrossOrigin
+@RequestMapping(value = "/api/v1", produces = "application/json")
 public class ProtocolController {
     @Autowired
     private ProtocolRepository protocolRepository;
 
     @ResponseBody
 
-
     @GetMapping("/protocols")
     public List<Protocol> getAllProtocols() {
         return protocolRepository.findAll();
     }
 
-    @GetMapping("/protocol/{id}")
-    public ResponseEntity<Protocol> getProtocolById(@PathVariable("id") String protocolCodeNumber)
+    @GetMapping("/protocol/trial/{id}")
+    public ResponseEntity<Protocol> getProtocolByTrialId(@PathVariable("id") String eudraCTNUmber)
             throws ResourceNotFoundException {
-        Protocol protocol = protocolRepository.findById(protocolCodeNumber)
-                .orElseThrow(() -> new ResourceNotFoundException("Protocol not found for this id :: " + protocolCodeNumber));
+        Protocol protocol = (Protocol) protocolRepository.findProtocolByEudraCTNumber(eudraCTNUmber);
         return ResponseEntity.ok().body(protocol);
     }
 }

@@ -1,85 +1,88 @@
 <h2 mat-dialog-title>Trial Details</h2>
 <mat-dialog-content class="mat-typography">
-    <h3>Basic Info</h3>
-    <mat-divider></mat-divider>
-    <mat-list>
-        <mat-list-item>EudraCT Number: {{trial.eudraCTNumber}}</mat-list-item>
+    <mat-spinner *ngIf="this.isLoading"></mat-spinner>
+    <div *ngIf="!this.isLoading">
+        <h3>Basic Info</h3>
         <mat-divider></mat-divider>
-        <mat-list-item>Trial Status: {{trial.trialStatus}}</mat-list-item>
+        <mat-list>
+            <mat-list-item>EudraCT Number: {{trial.eudraCTNumber}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Trial Status: {{trial.trialStatus}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Link: &nbsp; <a href="{{trial.link}}">{{trial.link}}</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Trial Type Phase: {{trial.trialTypePhase}} </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Design Of The Trial: {{trial.designOfTheTrial}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Number Of Subjects: {{trial.numberOfSubjects}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Therapeutic Area: {{trial.therapeuticArea}} </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Estimated Duration: {{trial.estimatedDuration}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Scope Of The Trial: {{trial.scopeOfTheTrial}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>First Added Date: {{trial.firstAddedDate | date:'dd-MM-yyyy'}}</mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+        <h3>Sponsor</h3>
         <mat-divider></mat-divider>
-        <mat-list-item>Link: &nbsp;  <a href="{{trial.link}}">{{trial.link}}</a></mat-list-item>
+        <mat-list>
+            <mat-list-item>Name Of Supporting Organisation: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Name: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Status: </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+        <h3>Criteria</h3>
         <mat-divider></mat-divider>
-        <mat-list-item>Trial Type Phase: {{trial.trialTypePhase}} </mat-list-item>
+        <mat-list>
+            <mat-list-item>HIV Test: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Gender: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Other Criteria: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Age: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Exclusion Criteria: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Specific Vulnerable Populations: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Group Of Subjects: </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+        <h3>Protocol</h3>
         <mat-divider></mat-divider>
-        <mat-list-item>Design Of The Trial: {{trial.designOfTheTrial}}</mat-list-item>
+        <mat-list>
+            <mat-list-item>Full Title: {{protocol.fullTitle}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Simplified Title: {{protocol.simplifiedTitle}} </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Main Objective: {{protocol.mainObjective}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Safety Objective: {{protocol.safetyObjective}} </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+        <h3>Comperator</h3>
         <mat-divider></mat-divider>
-        <mat-list-item>Number Of Subjects: {{trial.numberOfSubjects}}</mat-list-item>
+        <mat-list>
+            <mat-list-item>Type Of Comperator: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Pharm Form: </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Routes Of Administration: </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+        <h3>IMPs </h3>
         <mat-divider></mat-divider>
-        <mat-list-item>Therapeutic Area: {{trial.therapeuticArea}} </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Estimated Duration: {{trial.estimatedDuration}}</mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Scope Of The Trial: {{trial.scopeOfTheTrial}}</mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>First Added Date: {{trial.firstAddedDate | date:'dd-MM-yyyy'}}</mat-list-item>
-        <mat-divider></mat-divider>
-    </mat-list>
-    <h3>Sponsor</h3>
-    <mat-divider></mat-divider>
-    <mat-list>
-        <mat-list-item>Name Of Supporting Organisation: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Name: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Status: </mat-list-item>
-        <mat-divider></mat-divider>
-    </mat-list>
-    <h3>Criteria</h3>
-    <mat-divider></mat-divider>
-    <mat-list>
-        <mat-list-item>HIV Test: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Gender: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Other Criteria: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Age: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Exclusion Criteria: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Specific Vulnerable Populations: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Group Of Subjects: </mat-list-item>
-        <mat-divider></mat-divider>
-    </mat-list>
-    <h3>Protocol</h3>
-    <mat-divider></mat-divider>
-    <mat-list>
-        <mat-list-item>Full Title: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Simplified Title: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Main Objective: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Safety Objective: </mat-list-item>
-        <mat-divider></mat-divider>
-    </mat-list>
-    <h3>Comperator</h3>
-    <mat-divider></mat-divider>
-    <mat-list>
-        <mat-list-item>Type Of Comperator: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Pharm Form: </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>Routes Of Administration: </mat-list-item>
-        <mat-divider></mat-divider>
-    </mat-list>
-    <h3>IMPs </h3>
-    <mat-divider></mat-divider>
-    <mat-list>
-        <mat-list-item>Imp1 </mat-list-item>
-        <mat-divider></mat-divider>
-    </mat-list>
+        <mat-list>
+            <mat-list-item>Imp1 </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Close</button>

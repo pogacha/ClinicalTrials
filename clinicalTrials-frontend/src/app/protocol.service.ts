@@ -11,9 +11,8 @@ export class ProtocolService {
 
     constructor(private http: HttpClient) { }
 
-    getTrialProtocol(id: number): Observable<any> {
-        // TODO 
-        return this.http.get(`${this.baseUrl}/protocols/${id}`);
+    getProtocolByEudraCTNumber(id: number): Observable<any> {
+        return this.http.get(`${this.baseUrl}/protocol/trial/${id}`);
     }
 
     getProtocolsList(): Observable<any> {

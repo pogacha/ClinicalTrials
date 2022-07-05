@@ -32,9 +32,8 @@
                 <p mat-line>{{trial.numberOfSubjects}}</p>
                 <p mat-line>{{trial.firstAddedDate | date:'dd-MM-yyyy'}}</p>
                 <div class="button-container">
-                    <button [disabled]="!this.userService.hasUser" mat-icon-button color="primary"
-                        (click)="moreTrial(trial.eudraCTNumber)" aria-label="More info Trial"
-                        title="more info for Trial">
+                    <button mat-icon-button color="primary" (click)="moreTrial(trial.eudraCTNumber)"
+                        aria-label="More info Trial" title="more info for Trial">
                         <mat-icon>more</mat-icon>
                     </button>
                     <button [disabled]="!this.userService.hasUser" mat-icon-button color="primary"
