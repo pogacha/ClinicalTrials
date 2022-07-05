@@ -1,0 +1,19 @@
+<div>
+    <mat-list>
+        <mat-list-item class="header">
+            <h4>ProtocolCodeNumber</h4>
+            <h4>EudraCTNumber</h4>
+
+        </mat-list-item>
+        <mat-list-item *ngFor="let protocol of this.protocols | async">
+            <div class="protocol-text-container">
+                <p mat-line> {{protocol.protocolCodeNumber}} </p>
+                <p mat-line> {{protocol.eudraCTNumber}} </p>
+                <p mat-line> {{protocol.fullTitle}} </p>
+                <p mat-line> {{protocol.simplifiedTitle}} </p>
+                <p mat-line> {{protocol.mainObjective}}</p>
+                <p mat-line>{{protocol.safetyObjective}}</p>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>

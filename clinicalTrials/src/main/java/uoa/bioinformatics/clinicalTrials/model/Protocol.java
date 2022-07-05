@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import java.util.Date;
 
 
 @Entity
@@ -38,6 +39,9 @@ public class Protocol {
         this.mainObjective = mainObjective;
         this.safetyObjective = safetyObjective;
 
+    }
+
+    public Protocol() {
     }
 
     public String getProtocolCodeNumber() {

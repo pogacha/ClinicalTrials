@@ -34,7 +34,7 @@ import { SmallDialogComponent } from './small-dialog/small-dialog.component';
 import { TrialFormComponent } from './trial-form/trial-form.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
-// import { ProtocolComponent } from './protocol/protocol.component';
+import { ProtocolListComponent } from './protocol/protocol-list.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     TrialFormComponent,
     LogInComponent,
     UserDetailsComponent,
-    // ProtocolComponent
+    ProtocolListComponent
   ],
   imports: [
     BrowserModule,

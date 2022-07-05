@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProtocolComponent } from './protocol.component';
+import { ProtocolListComponent } from './protocol-list.component';
 
 describe('ProtocolComponent', () => {
-  let component: ProtocolComponent;
-  let fixture: ComponentFixture<ProtocolComponent>;
+  let component: ProtocolListComponent;
+  let fixture: ComponentFixture<ProtocolListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProtocolComponent ]
+      declarations: [ProtocolListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProtocolComponent);
+    fixture = TestBed.createComponent(ProtocolListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

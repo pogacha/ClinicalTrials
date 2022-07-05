@@ -26,8 +26,8 @@ public class ProtocolController {
     @ResponseBody
 
 
-    @GetMapping("/protocol")
-    public List<Protocol> getAllProtocol() {
+    @GetMapping("/protocols")
+    public List<Protocol> getAllProtocols() {
         return protocolRepository.findAll();
     }
 
