@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, SimpleChanges } from '@angular/core';
 import { Observable } from "rxjs";
 import { TrialService } from "../trial.service";
 import { Trial } from "../classes/trial";
@@ -20,22 +20,22 @@ import { User } from '../classes/user';
 })
 export class TrialListComponent implements OnInit {
   trials!: Observable<Trial[]>;
-  hasUser: boolean = false;
   userObservable: any;
 
 
   constructor(private trialService: TrialService,
-    private router: Router, private dialog: MatDialog, private _snackBar: MatSnackBar, private userService: UserService) { }
-
-  ngOnInit() {
-    this.reloadData();
-    this.userObservable = this.userService.getUser();
-    this.userObservable.subscribe((userData: User) => {
-      this.hasUser = (!!userData.userId);
-    });
+    private router: Router, private dialog: MatDialog, private _snackBar: MatSnackBar, public userService: UserService) {
   }
 
-  reloadData() {
+  ngOnInit() {
+    this.loadData()
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('changes', changes)
+  }
+
+  loadData() {
     this.trials = this.trialService.getTrialsList();
   }
 
@@ -53,7 +53,7 @@ export class TrialListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(success => {
       if (success) {
         this._snackBar.open('Trial Added!', 'Close');
-        this.reloadData();
+        this.loadData();
       } else {
         this._snackBar.open('Trial did not Added. Please Try again', 'Close');
       }
@@ -83,7 +83,7 @@ export class TrialListComponent implements OnInit {
                   buttonName: ''
                 },
               });
-              this.reloadData();
+              this.loadData();
             },
             error => console.log(error));
       }
@@ -101,7 +101,7 @@ export class TrialListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(success => {
       if (success) {
         this._snackBar.open('Trial Updated!', 'Close');
-        this.reloadData()
+        this.loadData()
       } else {
         this._snackBar.open('Trial did not Updated. Please Try again', 'Close');
       }
@@ -112,8 +112,5 @@ export class TrialListComponent implements OnInit {
     this.router.navigate(['details', id]);
   }
 
-}
-function TrialFormComponnent(TrialFormComponnent: any, arg1: {}) {
-  throw new Error('Function not implemented.');
 }
 

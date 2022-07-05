@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { User } from './classes/user';
 
 @Injectable({
@@ -19,7 +19,18 @@ export class UserService {
         email!: '',
         address!: ''
     };
-    constructor(private http: HttpClient) { }
+    public hasUser: boolean = false;
+    hasUserChange: Subject<boolean> = new Subject<boolean>();
+
+    constructor(private http: HttpClient) {
+        this.hasUserChange.subscribe((value) => {
+            this.hasUser = value
+        });
+    }
+
+    updateUserFlag(value: boolean) {
+        this.hasUserChange.next(value);
+    }
 
     login(user: Object): Observable<Object> {
         return this.http.post(`${this.baseUrl}/login`, user);

@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
 
   logout(): void {
     this.hasUser = false;
+    this.userService.updateUserFlag(this.hasUser);
     this.username = '';
     this.userService.setUser({
       userId: '',
@@ -55,6 +56,7 @@ export class HeaderComponent implements OnInit {
         this.hasUser = true;
         this.username = user.userName;
         this.userService.setUser(user)
+        this.userService.updateUserFlag(this.hasUser);
       }
     });
   }
