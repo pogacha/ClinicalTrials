@@ -11,12 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import uoa.bioinformatics.clinicalTrials.exception.ResourceNotFoundException;
 import uoa.bioinformatics.clinicalTrials.model.Protocol;
-import uoa.bioinformatics.clinicalTrials.model.Trial;
 import uoa.bioinformatics.clinicalTrials.repository.ProtocolRepository;
 
-import javax.servlet.http.HttpServletResponse;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 @CrossOrigin
@@ -35,7 +31,7 @@ public class ProtocolController {
     @GetMapping("/protocol/trial/{id}")
     public ResponseEntity<Protocol> getProtocolByTrialId(@PathVariable("id") String eudraCTNUmber)
             throws ResourceNotFoundException {
-        Protocol protocol = (Protocol) protocolRepository.findProtocolByEudraCTNumber(eudraCTNUmber);
+        Protocol protocol = protocolRepository.findProtocolByEudraCTNumber(eudraCTNUmber);
         return ResponseEntity.ok().body(protocol);
     }
 }

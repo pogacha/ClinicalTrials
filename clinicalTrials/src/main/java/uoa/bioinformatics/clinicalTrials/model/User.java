@@ -13,7 +13,6 @@ import java.util.Date;
 
 @Table(name = "trial_user")
 public class User {
-//    add auto increment at ID
     @Id
     @Column(name="userId", nullable = false)
     private String userId;

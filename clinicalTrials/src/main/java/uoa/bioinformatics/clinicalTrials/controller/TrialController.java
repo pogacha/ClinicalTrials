@@ -12,7 +12,6 @@ import uoa.bioinformatics.clinicalTrials.exception.ResourceNotFoundException;
 import uoa.bioinformatics.clinicalTrials.model.Trial;
 import uoa.bioinformatics.clinicalTrials.repository.TrialRepository;
 
-import javax.servlet.http.HttpServletResponse;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 

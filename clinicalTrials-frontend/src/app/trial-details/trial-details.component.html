@@ -39,19 +39,19 @@
         <h3>Criteria</h3>
         <mat-divider></mat-divider>
         <mat-list>
-            <mat-list-item>HIV Test: </mat-list-item>
+            <mat-list-item>HIV Test: {{criteria.criteriaHivTest ? 'Positive' : 'Negative'}} </mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Gender: </mat-list-item>
+            <mat-list-item>Gender: {{criteria.criteriaGender}}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Other Criteria: </mat-list-item>
+            <mat-list-item>Other Criteria:{{criteria.incIteriaOther}} </mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Age: </mat-list-item>
+            <mat-list-item>Age: {{criteria.criteriaAge}}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Exclusion Criteria: </mat-list-item>
+            <mat-list-item>Exclusion Criteria: {{criteria.exclusionCriteria}}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Specific Vulnerable Populations: </mat-list-item>
+            <mat-list-item>Specific Vulnerable Populations: {{criteria.specificVulnerablePopulations}}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Group Of Subjects: </mat-list-item>
+            <mat-list-item>Group Of Subjects: {{criteria.groupOfSubjects}}</mat-list-item>
             <mat-divider></mat-divider>
         </mat-list>
         <h3>Protocol</h3>

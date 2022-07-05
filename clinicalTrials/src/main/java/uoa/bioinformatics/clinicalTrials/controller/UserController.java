@@ -1,6 +1,5 @@
 package uoa.bioinformatics.clinicalTrials.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,13 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import uoa.bioinformatics.clinicalTrials.exception.ResourceNotFoundException;
-import uoa.bioinformatics.clinicalTrials.model.Trial;
 import uoa.bioinformatics.clinicalTrials.model.User;
 import uoa.bioinformatics.clinicalTrials.repository.UserRepository;
 
-import javax.servlet.http.HttpServletResponse;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController @CrossOrigin
 @RequestMapping(value="/api/v1", produces = "application/json")

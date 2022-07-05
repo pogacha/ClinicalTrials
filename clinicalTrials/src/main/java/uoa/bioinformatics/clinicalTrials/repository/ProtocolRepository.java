@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import uoa.bioinformatics.clinicalTrials.model.Protocol;
 
-import java.util.List;
 
 @Repository
 public interface ProtocolRepository extends JpaRepository<Protocol, String>{
