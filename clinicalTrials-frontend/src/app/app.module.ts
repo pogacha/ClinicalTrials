@@ -37,6 +37,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ProtocolListComponent } from './protocol-list/protocol-list.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SponsorListComponent } from './sponsor-list/sponsor-list.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     LogInComponent,
     UserDetailsComponent,
     ProtocolListComponent,
-    SidebarComponent
+    SidebarComponent,
+    SponsorListComponent
   ],
   imports: [
     BrowserModule,

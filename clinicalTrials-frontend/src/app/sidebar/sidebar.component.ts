@@ -8,13 +8,36 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+
+  menu = [
+    {
+      icon: 'home',
+      url: '/',
+      title: 'Home Page'
+    },
+    {
+      icon: 'biotech',
+      url: '/trials',
+      title: 'Trials'
+    },
+    {
+      icon: 'approval',
+      url: '/protocols',
+      title: 'Protocols'
+    },
+    {
+      icon: 'handshake',
+      url: '/sponsors',
+      title: 'Sponsors'
+    }
+  ]
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
 
-  navigate(menu: string): void {
-    this.router.navigate(['/' + menu]);
+  navigate(item: string): void {
+    this.router.navigate([item]);
   }
 
 }

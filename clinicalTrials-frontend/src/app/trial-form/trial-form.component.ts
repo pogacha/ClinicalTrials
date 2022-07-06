@@ -27,7 +27,6 @@ export class TrialFormComponent implements OnInit {
       .subscribe(
         data => {
           this.sponsors = data;
-          console.log(data);
         },
         error => console.log(error),
       );
@@ -41,7 +40,7 @@ export class TrialFormComponent implements OnInit {
         .subscribe(
           data => {
             this.trialForm = this.formBuilder.group({
-              eudraCTNumber: data.eudraCTNumber,
+              eudraCTNumber: [{ value: data.eudraCTNumber, disabled: true }],
               sponsorId: data.sponsorId,
               designOfTheTrial: data.designOfTheTrial,
               trialTypePhase: data.trialTypePhase,
@@ -64,7 +63,7 @@ export class TrialFormComponent implements OnInit {
       this.title = 'Add Trial';
       this.buttonName = 'Add';
       this.trialForm = this.formBuilder.group({
-        eudraCTNumber: 'fghfghgf',
+        eudraCTNumber: '',
         sponsorId: '',
         trialStatus: '',
         designOfTheTrial: '',
@@ -84,22 +83,22 @@ export class TrialFormComponent implements OnInit {
     // Process checkout data here
     let trialDetails = this.trialForm.value;
     if (this.isUpdate) {
-      this.trialService.updateTrial(this.trialForm.value.eudraCTNumber, trialDetails)
+      this.trialService.updateTrial(this.data.trial, trialDetails)
         .subscribe(
           data => {
             this.trial = data;
             this.dialogRef.close(data);
           },
-          error => this.dialogRef.close(false));
+          error => this.dialogRef.close(error));
     } else {
-      console.log(trialDetails)
       this.trialService.createTrial(trialDetails)
         .subscribe(
           data => {
             this.trial = data;
             this.dialogRef.close(data);
           },
-          error => this.dialogRef.close(false));
+          error => this.dialogRef.close(error));
     }
+
   }
 }

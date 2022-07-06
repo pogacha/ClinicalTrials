@@ -1,18 +1,6 @@
 <div class="sidebar">
-    <button class="menu-item" mat-button color="primary" (click)="navigate('')" aria-label="Navigate to home"
-        title="Navigate to Home">
-        <mat-icon>home</mat-icon>
-    </button>
-    <button class="menu-item" mat-button color="primary" (click)="navigate('trials')" aria-label="Navigate to Trials"
-        title="Navigate to Trial">
-        <mat-icon>biotech</mat-icon>
-    </button>
-    <button class="menu-item" mat-button color="primary" (click)="navigate('protocols')" aria-label="Navigate to Trial"
-        title="Navigate to Protocols">
-        <mat-icon>approval</mat-icon>
-    </button>
-    <button class="menu-item" mat-button color="primary" (click)="navigate('sponsors')"
-        aria-label="Navigate to Sponsors" title="Navigate to sponsors">
-        <mat-icon>handshake</mat-icon>
+    <button class="menu-item" mat-button color="primary" *ngFor="let item of menu" (click)="navigate(item.url)"
+        [class.active]="item.url === router.url" title={{item.title}}>
+        <mat-icon>{{item.icon}}</mat-icon>
     </button>
 </div>

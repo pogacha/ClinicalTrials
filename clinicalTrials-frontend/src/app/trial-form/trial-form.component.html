@@ -1,13 +1,13 @@
 <h2 mat-dialog-title>{{title}}</h2>
-<mat-dialog-content class="mat-typography">
+<mat-spinner *ngIf="this.isLoading"></mat-spinner>
+<mat-dialog-content *ngIf="!this.isLoading" class="mat-typography">
     <h3>Basic Info</h3>
     <mat-divider></mat-divider>
-    <mat-spinner *ngIf="this.isLoading"></mat-spinner>
-
-    <form *ngIf="!this.isLoading" class="clinical-trials-form" [formGroup]="trialForm">
+    <form class="clinical-trials-form" [formGroup]="trialForm">
         <mat-form-field appearance="legacy" req>
             <mat-label>EudraCT Number</mat-label>
-            <input matInput placeholder="EudraCTNumber" formControlName="eudraCTNumber" required>
+            <input [disabled]="this.isUpdate" matInput placeholder="EudraCTNumber" formControlName="eudraCTNumber"
+                required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
             <mat-label>Select a sponsor</mat-label>
@@ -58,7 +58,7 @@
         </mat-form-field>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<mat-dialog-actions *ngIf="!this.isLoading" align="end">
     <button mat-button mat-dialog-close>Close</button>
-    <button mat-button (click)="onSubmit()" cdkFocusInitial>{{buttonName}}</button>
+    <button mat-button (click)="onSubmit()" [disabled]="!this.trialForm.valid" cdkFocusInitial>{{buttonName}}</button>
 </mat-dialog-actions>

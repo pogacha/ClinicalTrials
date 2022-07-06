@@ -54,11 +54,11 @@ export class TrialListComponent implements OnInit {
     let dialogRef = this.dialog.open(TrialFormComponent, {
     });
     dialogRef.afterClosed().subscribe(success => {
-      if (success) {
+      if (typeof success == 'object') {
         this._snackBar.open('Trial Added!', 'Close');
         this.loadData();
-      } else {
-        this._snackBar.open('Trial did not Added. Please Try again', 'Close');
+      } else if (typeof success == 'string' && success.length > 0) {
+        this._snackBar.open(success);
       }
     });
   }
@@ -102,11 +102,10 @@ export class TrialListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(success => {
-      if (success) {
+      if (typeof success == 'object') {
         this._snackBar.open('Trial Updated!', 'Close');
-        this.loadData()
-      } else {
-        this._snackBar.open('Trial did not Updated. Please Try again', 'Close');
+      } else if (typeof success == 'string' && success.length > 0) {
+        this._snackBar.open(success);
       }
     });
   }
