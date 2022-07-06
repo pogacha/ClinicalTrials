@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 
 
 import { AppComponent } from './app.component';
@@ -72,7 +73,8 @@ import { ProtocolListComponent } from './protocol-list/protocol-list.component';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [
     MatDatepickerModule,

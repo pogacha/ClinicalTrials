@@ -56,6 +56,7 @@ public class TrialController {
         Trial trial = trialRepository.findById(eudraCTNumber)
                 .orElseThrow(() -> new ResourceNotFoundException("Trial not found for this eudraCTNumber :: " + eudraCTNumber));
 
+        trial.setSponsorId(newTrialDetails.getSponsorId());
         trial.setTrialStatus(newTrialDetails.getTrialStatus());
         trial.setDesignOfTheTrial(newTrialDetails.getDesignOfTheTrial());
         trial.setTrialTypePhase(newTrialDetails.getTrialTypePhase());

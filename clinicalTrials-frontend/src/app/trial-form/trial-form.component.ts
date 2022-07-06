@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Sponsor } from '../classes/sponsor';
+import { SponsorService } from '../sponsor.service';
 import { TrialService } from '../trial.service';
 
 
@@ -13,21 +15,34 @@ export class TrialFormComponent implements OnInit {
   title: string = '';
   buttonName: string = '';
   trial!: any;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private trialService: TrialService, private dialogRef: MatDialogRef<TrialFormComponent>) { }
+  sponsors !: Sponsor[];
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder,
+    private trialService: TrialService, private sponsorService: SponsorService, private dialogRef: MatDialogRef<TrialFormComponent>) { }
   trialForm !: any;
   isLoading = true;
   isUpdate = false;
 
   ngOnInit(): void {
+    this.sponsorService.getSponsors()
+      .subscribe(
+        data => {
+          this.sponsors = data;
+          console.log(data);
+        },
+        error => console.log(error),
+      );
     if (this.data) {
       this.title = 'Update Trial';
       this.buttonName = 'Update';
       this.isUpdate = true;
+
+
       this.trialService.getTrial(this.data.trial)
         .subscribe(
           data => {
             this.trialForm = this.formBuilder.group({
               eudraCTNumber: data.eudraCTNumber,
+              sponsorId: data.sponsorId,
               designOfTheTrial: data.designOfTheTrial,
               trialTypePhase: data.trialTypePhase,
               trialStatus: data.trialStatus,
@@ -38,6 +53,7 @@ export class TrialFormComponent implements OnInit {
               numberOfSubjects: data.numberOfSubjects,
               firstAddedDate!: data.firstAddedDate
             });
+
             this.isLoading = false;
           },
           error => console.log(error),
@@ -49,6 +65,7 @@ export class TrialFormComponent implements OnInit {
       this.buttonName = 'Add';
       this.trialForm = this.formBuilder.group({
         eudraCTNumber: 'fghfghgf',
+        sponsorId: '',
         trialStatus: '',
         designOfTheTrial: '',
         trialTypePhase: '',
@@ -75,6 +92,7 @@ export class TrialFormComponent implements OnInit {
           },
           error => this.dialogRef.close(false));
     } else {
+      console.log(trialDetails)
       this.trialService.createTrial(trialDetails)
         .subscribe(
           data => {

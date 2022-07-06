@@ -10,6 +10,14 @@
             <input matInput placeholder="EudraCTNumber" formControlName="eudraCTNumber" required>
         </mat-form-field>
         <mat-form-field appearance="legacy" req>
+            <mat-label>Select a sponsor</mat-label>
+            <mat-select [(value)]="trialForm.value.sponsorId" formControlName="sponsorId" required>
+                <mat-option value="{{sponsor.sponsorId}}" *ngFor="let sponsor of sponsors">{{sponsor.sponsorName}} /
+                    {{sponsor.nameOfSupportingOrg}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="legacy" req>
             <mat-label>Status</mat-label>
             <input matInput placeholder="trialStatus" formControlName="trialStatus" required>
         </mat-form-field>

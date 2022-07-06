@@ -12,6 +12,7 @@ export class TrialService {
     constructor(private http: HttpClient) { }
 
     getTrial(id: number): Observable<any> {
+        console.log(id)
         return this.http.get(`${this.baseUrl}/trials/${id}`);
     }
 

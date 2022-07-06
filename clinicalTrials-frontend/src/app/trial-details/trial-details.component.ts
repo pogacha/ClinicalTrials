@@ -9,6 +9,8 @@ import { CriteriaService } from '../criteria.service';
 import { Criteria } from '../classes/criteria';
 import { Comparator } from '../classes/comparator';
 import { ComparatorService } from '../comparator.service';
+import { SponsorService } from '../sponsor.service';
+import { Sponsor } from '../classes/sponsor';
 
 @Component({
   selector: 'app-trial-details',
@@ -20,12 +22,13 @@ export class TrialDetailsComponent implements OnInit {
   protocol !: Protocol;
   criteria !: Criteria;
   comparators !: Comparator[];
+  sponsor !: Sponsor;
   isLoading = true;
   constructor(private trialService: TrialService, private protocolService: ProtocolService,
-    private criteriaService: CriteriaService, private comparatorService: ComparatorService, @Inject(MAT_DIALOG_DATA) public data: any) { }
+    private criteriaService: CriteriaService, private comparatorService: ComparatorService,
+    private sponsorService: SponsorService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    // // forkJoin() to make parallel calls
     forkJoin({
       trialRequest: this.trialService.getTrial(this.data.trial),
       protocolRequest: this.protocolService.getProtocolByEudraCTNumber(this.data.trial),
@@ -36,8 +39,19 @@ export class TrialDetailsComponent implements OnInit {
       this.protocol = protocolRequest;
       this.criteria = criteriaRequest;
       this.comparators = comparatorRequest;
-      this.isLoading = false;
+      this.getSponsor();
     });
+  }
+
+  getSponsor(): void {
+    this.sponsorService.getSponsor(this.trial.sponsorId)
+      .subscribe(
+        data => {
+          this.sponsor = data
+          this.isLoading = false;
+        },
+        error => console.log(error),
+      );
   }
 
 }

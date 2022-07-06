@@ -15,9 +15,9 @@ public class Trial {
 
     @Id
     @Column(name="eudraCTNumber", nullable = false)
-    private String sponsorId;
-    @Column(name="sponsorId", nullable = false)
     private String eudraCTNumber;
+    @Column(name="sponsorId", nullable = false)
+    private String sponsorId;
     @Column(name="trialStatus", nullable = false)
     private String trialStatus;
     @Column(name="designOfTheTrial")

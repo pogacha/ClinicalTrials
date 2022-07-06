@@ -1,6 +1,7 @@
 
 export class Trial {
     eudraCTNumber!: String;
+    sponsorId!: string;
     trialStatus!: string;
     designOfTheTrial!: string;
     trialTypePhase!: string;
