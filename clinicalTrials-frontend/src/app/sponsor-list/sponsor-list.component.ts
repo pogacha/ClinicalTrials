@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Sponsor } from '../classes/sponsor';
 import { SponsorService } from '../sponsor.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,13 +13,12 @@ import { SponsorService } from '../sponsor.service';
   styleUrls: ['./sponsor-list.component.css']
 })
 export class SponsorListComponent implements OnInit {
-
   sponsors!: Observable<Sponsor[]>;
   hasUser: boolean = true;
 
 
   constructor(private sponsorsService: SponsorService,
-    private router: Router, private dialog: MatDialog) { }
+    private router: Router, private dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.reloadData();
