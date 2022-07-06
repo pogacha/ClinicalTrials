@@ -7,7 +7,9 @@ body {
 
 body {
     margin: 0;
+    padding: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    width: 100%;
 }
 
 
@@ -39,4 +41,13 @@ body {
 
 .mat-spinner {
     margin: 16px auto;
+}
+
+/* set colors */
+.mat-toolbar {
+    background-color: #9AA899;
+}
+
+.trial-list-container {
+    width: 100%;
 }

@@ -15,6 +15,9 @@ import { User } from '../classes/user';
 
 @Component({
   selector: 'app-trial-list',
+  host: {
+    class: 'trial-list-container'
+  },
   templateUrl: './trial-list.component.html',
   styleUrls: ['./trial-list.component.css']
 })

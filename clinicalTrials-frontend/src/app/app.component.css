@@ -1,15 +1,21 @@
 .content {
-    min-height: calc(100vh - 146px);
+    min-height: calc(100vh - 114px);
+    max-height: calc(100vh - 114px);
+    display: flex;
 }
 
 
 .footer {
     height: 50px;
-    background: #f5f5f5;
-    color: rgba(0, 0, 0, .87);
+    background-color: #9AA899;
     margin-left: auto;
     display: flex;
     align-items: center;
-    padding: 16px;
-    flex: end;
+    justify-content: end;
+    padding-right: 16px;
+    ;
+}
+
+.copyright {
+    margin: 0;
 }

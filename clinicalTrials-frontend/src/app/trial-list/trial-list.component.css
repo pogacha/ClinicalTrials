@@ -6,8 +6,6 @@
   padding: 4px 8px;
   width: 100%;
   flex-wrap: wrap;
-
-  
 }
 
 .trial-text-container>* {
@@ -35,6 +33,11 @@ button:hover {
   cursor: pointer;
 }
 
-h4{
+h4 {
   font-weight: bold;
+}
+
+.trial-list {
+  overflow: auto;
+  max-height: calc(100vh - 192px)
 }

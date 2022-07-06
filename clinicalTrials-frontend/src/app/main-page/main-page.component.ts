@@ -13,12 +13,4 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToTrials(): void {
-    this.router.navigate(['/trials']);
-  }
-
-  navigateToProtocol(): void {
-    this.router.navigate(['/protocols']);
-  }
-
 }
