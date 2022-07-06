@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import uoa.bioinformatics.clinicalTrials.exception.ResourceNotFoundException;
 import uoa.bioinformatics.clinicalTrials.model.Criteria;
 import uoa.bioinformatics.clinicalTrials.repository.CriteriaRepository;
-import uoa.bioinformatics.clinicalTrials.repository.ProtocolRepository;
 
 
 @RestController

@@ -69,12 +69,14 @@
         <h3>Comperator</h3>
         <mat-divider></mat-divider>
         <mat-list>
-            <mat-list-item>Type Of Comperator: </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>Pharm Form: </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>Routes Of Administration: </mat-list-item>
-            <mat-divider></mat-divider>
+            <div *ngFor="let comparator of this.comparators">
+                <mat-list-item>Type Of Comperator: {{comparator.typeOfComparator}}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Pharm Form: {{comparator.pharmForm}}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Routes Of Administration: {{comparator.routesOfAdm}}</mat-list-item>
+                <mat-divider></mat-divider>
+            </div>
         </mat-list>
         <h3>IMPs </h3>
         <mat-divider></mat-divider>
