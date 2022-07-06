@@ -15,6 +15,8 @@ public class Trial {
 
     @Id
     @Column(name="eudraCTNumber", nullable = false)
+    private String sponsorId;
+    @Column(name="sponsorId", nullable = false)
     private String eudraCTNumber;
     @Column(name="trialStatus", nullable = false)
     private String trialStatus;
@@ -36,10 +38,11 @@ public class Trial {
     private Date firstAddedDate;
 
     @JsonCreator
-    public Trial(String eudraCTNumber, String trialStatus, String designOfTheTrial, String trialTypePhase,
+    public Trial(String eudraCTNumber, String sponsorId, String trialStatus, String designOfTheTrial, String trialTypePhase,
                  String scopeOfTheTrial, String estimatedDuration, String link, String therapeuticArea,
                  int numberOfSubjects, Date firstAddedDate ) {
         this.eudraCTNumber = eudraCTNumber;
+        this.sponsorId = sponsorId;
         this.trialStatus = trialStatus;
         this.designOfTheTrial = designOfTheTrial;
         this.trialTypePhase = trialTypePhase;
@@ -132,6 +135,14 @@ public class Trial {
 
     public void setFirstAddedDate(Date firstAddedDate) {
         firstAddedDate = firstAddedDate;
+    }
+
+    public String getSponsorId() {
+        return sponsorId;
+    }
+
+    public void setSponsorId(String sponsorId) {
+        this.sponsorId = sponsorId;
     }
 
     @Override
