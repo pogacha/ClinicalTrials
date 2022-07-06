@@ -1,0 +1,6 @@
+<div class="sidebar">
+    <button class="menu-item" mat-button color="primary" *ngFor="let item of menu" (click)="navigate(item.url)"
+        [class.active]="item.url === router.url" title={{item.title}}>
+        <mat-icon>{{item.icon}}</mat-icon>
+    </button>
+</div>

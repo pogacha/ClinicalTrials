@@ -36,6 +36,8 @@ import { TrialFormComponent } from './trial-form/trial-form.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ProtocolListComponent } from './protocol-list/protocol-list.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SponsorListComponent } from './sponsor-list/sponsor-list.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ProtocolListComponent } from './protocol-list/protocol-list.component';
     TrialFormComponent,
     LogInComponent,
     UserDetailsComponent,
-    ProtocolListComponent
+    ProtocolListComponent,
+    SidebarComponent,
+    SponsorListComponent
   ],
   imports: [
     BrowserModule,

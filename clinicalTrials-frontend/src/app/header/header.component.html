@@ -1,8 +1,8 @@
 <mat-toolbar>
-    <button mat-button (click)="goToMain()">Clinical Trials</button>
+    <button mat-button (click)="goToMain()" class="logo  primary-button">Clinical Trials</button>
     <div class="user-container">
         <span *ngIf="hasUser">{{this.username}}</span>
-        <button mat-icon-button [matMenuTriggerFor]="menu" class="person-icon user-button"
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="person-icon user-button primary-button"
             aria-label="Person icon-button with share icon">
             <mat-icon>person</mat-icon>
         </button>

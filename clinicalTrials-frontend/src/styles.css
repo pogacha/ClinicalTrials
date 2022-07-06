@@ -7,9 +7,25 @@ body {
 
 body {
     margin: 0;
+    padding: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    width: 100%;
 }
 
+/* buttons */
+
+.mat-button.mat-primary,
+.mat-icon-button.mat-primary,
+.mat-stroked-button.mat-primary {
+    color: #54577C;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+    background-color: #54577C;
+}
 
 /* Forms*/
 .clinical-trials-form {
@@ -39,4 +55,30 @@ body {
 
 .mat-spinner {
     margin: 16px auto;
+}
+
+/* set colors */
+.mat-toolbar {
+    background-color: #9AA899;
+}
+
+.trial-list-container {
+    width: 100%;
+}
+
+.mat-button.mat-primary.menu-item {
+    color: white;
+    margin: 16px 0;
+    padding: 0 8px
+}
+
+.mat-button.mat-primary.menu-item.active {
+    border-bottom: 2px solid white;
+    border-radius: 0px;
+}
+
+.mat-button.mat-primary.menu-item .mat-icon {
+    font-size: 40px;
+    width: 48px;
+    height: 48px;
 }
