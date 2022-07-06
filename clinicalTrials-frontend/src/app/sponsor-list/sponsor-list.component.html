@@ -1,1 +1,20 @@
-{{sponsors}}
+<div>
+    <mat-list class="sponsorList">
+        <mat-list-item class="header">
+            <h4>Sponsor Id</h4>
+            <h4>Sponsor Name</h4>
+            <h4>Sponsor Status</h4>
+            <h4>Supporting Organisation</h4>
+
+        </mat-list-item>
+        <mat-list-item *ngFor="let sponsor of this.sponsors | async">
+            <div class="sponsorTextContainer">
+                <p mat-line> {{sponsor.sponsorId}} </p>
+                <p mat-line> {{sponsor.sponsorName}} </p>
+                <p mat-line> {{sponsor.sponsorStatus}} </p>
+                <p mat-line> {{sponsor.nameOfSupportingOrg}} </p>
+
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>

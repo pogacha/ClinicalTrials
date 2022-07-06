@@ -7,7 +7,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
-
 @Component({
   selector: 'app-protocol-list',
   templateUrl: './protocol-list.component.html',

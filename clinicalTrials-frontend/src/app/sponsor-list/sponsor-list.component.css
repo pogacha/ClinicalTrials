@@ -1,0 +1,37 @@
+.sponsorTextContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    width: 1000px;
+    flex-wrap: wrap;
+    
+}
+
+.sponsorTextContainer>* {
+    flex: 0 20 10%;
+  }
+  
+  .sponsorTextContainer h4,
+  .sponsorTextContainer p {
+    margin: 0px 8px;
+  }
+
+  .sponsorList{
+    overflow: auto;
+    max-height: calc(100vh - 192px)
+  }
+
+  .trials-section h2 {
+    margin: 0;
+  }
+  
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  h4 {
+    font-weight: bold;
+  }
