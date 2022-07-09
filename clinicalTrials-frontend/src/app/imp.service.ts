@@ -18,4 +18,9 @@ export class ImpService {
     getImps(): Observable<any> {
         return this.http.get(`${this.baseUrl}/imps`);
     }
+
+    getImpsActiveSubstances(id: String): Observable<any> {
+        return this.http.get(`${this.baseUrl}/imps/activesubstance/${id}`);
+    }
+
 }

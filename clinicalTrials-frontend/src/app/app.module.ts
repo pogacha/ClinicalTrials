@@ -39,6 +39,7 @@ import { ProtocolListComponent } from './protocol-list/protocol-list.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SponsorListComponent } from './sponsor-list/sponsor-list.component';
 import { ImpListComponent } from './imp-list/imp-list.component';
+import { AcListComponent } from './ac-list/ac-list.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ImpListComponent } from './imp-list/imp-list.component';
     ProtocolListComponent,
     SidebarComponent,
     SponsorListComponent,
-    ImpListComponent
+    ImpListComponent,
+    AcListComponent
   ],
   imports: [
     BrowserModule,

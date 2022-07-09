@@ -24,11 +24,10 @@ public class ActiveSubstanceController {
         return activeSubstanceRepository.findAll();
     }
 
-    @GetMapping("/activesub/{id}")
-    public ResponseEntity<ActiveSubstance> getActiveSubstanceById(@PathVariable("id") String casNumber)
+    @GetMapping("/imps/activesubstance/{id}")
+    public ResponseEntity<List<ActiveSubstance>> getActiveSubstanceAtImp(@PathVariable("id") String impId)
             throws ResourceNotFoundException {
-        ActiveSubstance as = activeSubstanceRepository.findById(casNumber)
-                .orElseThrow(() -> new ResourceNotFoundException("Active Substance not found for this id :: " + casNumber));
+        List<ActiveSubstance> as = activeSubstanceRepository.findActiveSubstanceByImpId(impId);
         return ResponseEntity.ok().body(as);
     }
 }

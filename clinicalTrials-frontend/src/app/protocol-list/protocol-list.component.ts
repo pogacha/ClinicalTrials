@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
 import { ProtocolService } from "../protocol.service";
 import { Protocol } from "../classes/protocol";
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -14,16 +12,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProtocolListComponent implements OnInit {
   protocols!: Observable<Protocol[]>;
-  hasUser: boolean = true;
 
 
-  constructor(private protocolService: ProtocolService,
-    private router: Router, private dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  constructor(private protocolService: ProtocolService) { }
 
   ngOnInit() {
     this.reloadData();
-    console.log(this.protocols)
-
   }
 
   reloadData() {
