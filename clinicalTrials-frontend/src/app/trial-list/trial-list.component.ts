@@ -9,7 +9,6 @@ import { TrialDetailsComponent } from '../trial-details/trial-details.component'
 import { TrialFormComponent } from '../trial-form/trial-form.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from '../user.service';
-import { User } from '../classes/user';
 
 
 

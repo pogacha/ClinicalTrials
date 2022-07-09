@@ -16,6 +16,8 @@ public class Imp {
     @Id
     @Column(name="impId", nullable = false)
     private String impId;
+    @Column(name="eudraCTNumber", nullable = false)
+    private String eudraCTNumber;
     @Column(name="routesOfAdm", nullable = false)
     private String routesOfAdm;
     @Column(name="tradeName", nullable = false)
@@ -36,8 +38,9 @@ public class Imp {
 
     @JsonCreator
 
-    public Imp(String impId, String routesOfAdm, String tradeName, String productName, String impRole, String moreInfo, String hasMarketingAuth, String countryHasMarketingAuth, String pharmForm) {
+    public Imp(String impId, String eudraCTNumber, String routesOfAdm, String tradeName, String productName, String impRole, String moreInfo, String hasMarketingAuth, String countryHasMarketingAuth, String pharmForm) {
         this.impId = impId;
+        this.eudraCTNumber = eudraCTNumber;
         this.routesOfAdm = routesOfAdm;
         this.tradeName = tradeName;
         this.productName = productName;
@@ -57,6 +60,14 @@ public class Imp {
 
     public void setImpId(String impId) {
         this.impId = impId;
+    }
+
+    public String getEudraCTNumber() {
+        return eudraCTNumber;
+    }
+
+    public void setEudraCTNumber(String eudraCTNumber) {
+        this.eudraCTNumber = eudraCTNumber;
     }
 
     public String getRoutesOfAdm() {

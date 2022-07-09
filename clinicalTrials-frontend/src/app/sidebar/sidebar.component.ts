@@ -29,6 +29,11 @@ export class SidebarComponent implements OnInit {
       icon: 'handshake',
       url: '/sponsors',
       title: 'Sponsors'
+    },
+    {
+      icon: 'medication',
+      url: '/imps',
+      title: 'Imps'
     }
   ]
   constructor(public router: Router) { }

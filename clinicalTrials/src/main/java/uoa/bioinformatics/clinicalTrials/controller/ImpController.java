@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import uoa.bioinformatics.clinicalTrials.exception.ResourceNotFoundException;
 import uoa.bioinformatics.clinicalTrials.model.Imp;
 
-import uoa.bioinformatics.clinicalTrials.model.Trial;
+import uoa.bioinformatics.clinicalTrials.model.Protocol;
 import uoa.bioinformatics.clinicalTrials.repository.ImpRepository;
 
 import java.util.List;
@@ -25,11 +25,10 @@ public class ImpController {
         return impRepository.findAll();
     }
 
-    @GetMapping("/imps/{id}")
-    public ResponseEntity<Imp> getImpById(@PathVariable("id") String impId)
+    @GetMapping("/imps/trial/{id}")
+    public ResponseEntity<Imp> getImpByTrialId(@PathVariable("id") String eudraCTNUmber)
             throws ResourceNotFoundException {
-        Imp imp = impRepository.findById(impId)
-                .orElseThrow(() -> new ResourceNotFoundException("Trial not found for this id :: " + impId));
+        Imp imp = impRepository.findImpByEudraCTNumber(eudraCTNUmber);
         return ResponseEntity.ok().body(imp);
     }
 }

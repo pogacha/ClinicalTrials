@@ -38,6 +38,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { ProtocolListComponent } from './protocol-list/protocol-list.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SponsorListComponent } from './sponsor-list/sponsor-list.component';
+import { ImpListComponent } from './imp-list/imp-list.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SponsorListComponent } from './sponsor-list/sponsor-list.component';
     UserDetailsComponent,
     ProtocolListComponent,
     SidebarComponent,
-    SponsorListComponent
+    SponsorListComponent,
+    ImpListComponent
   ],
   imports: [
     BrowserModule,

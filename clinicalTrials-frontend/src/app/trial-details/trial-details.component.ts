@@ -11,6 +11,8 @@ import { Comparator } from '../classes/comparator';
 import { ComparatorService } from '../comparator.service';
 import { SponsorService } from '../sponsor.service';
 import { Sponsor } from '../classes/sponsor';
+import { ImpService } from '../imp.service';
+import { Imp } from '../classes/imp';
 
 @Component({
   selector: 'app-trial-details',
@@ -23,22 +25,25 @@ export class TrialDetailsComponent implements OnInit {
   criteria !: Criteria;
   comparators !: Comparator[];
   sponsor !: Sponsor;
+  imp !: Imp;
   isLoading = true;
   constructor(private trialService: TrialService, private protocolService: ProtocolService,
     private criteriaService: CriteriaService, private comparatorService: ComparatorService,
-    private sponsorService: SponsorService, @Inject(MAT_DIALOG_DATA) public data: any) { }
+    private sponsorService: SponsorService, private impService: ImpService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     forkJoin({
       trialRequest: this.trialService.getTrial(this.data.trial),
       protocolRequest: this.protocolService.getProtocolByEudraCTNumber(this.data.trial),
       criteriaRequest: this.criteriaService.getCriteriaByEudraCTNumber(this.data.trial),
-      comparatorRequest: this.comparatorService.getComparatorsByEudraCTNumber(this.data.trial)
-    }).subscribe(({ trialRequest, protocolRequest, criteriaRequest, comparatorRequest }) => {
+      comparatorRequest: this.comparatorService.getComparatorsByEudraCTNumber(this.data.trial),
+      impRequest: this.impService.getImpFromEudraCTNumber(this.data.trial)
+    }).subscribe(({ trialRequest, protocolRequest, criteriaRequest, comparatorRequest, impRequest }) => {
       this.trial = trialRequest;
       this.protocol = protocolRequest;
       this.criteria = criteriaRequest;
       this.comparators = comparatorRequest;
+      this.imp = impRequest;
       this.getSponsor();
     });
   }
@@ -53,5 +58,6 @@ export class TrialDetailsComponent implements OnInit {
         error => console.log(error),
       );
   }
+
 
 }
