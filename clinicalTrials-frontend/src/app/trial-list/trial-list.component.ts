@@ -23,6 +23,7 @@ import { UserService } from '../user.service';
 export class TrialListComponent implements OnInit {
   trials!: Observable<Trial[]>;
   userObservable: any;
+  searchText = '';
 
 
   constructor(private trialService: TrialService,

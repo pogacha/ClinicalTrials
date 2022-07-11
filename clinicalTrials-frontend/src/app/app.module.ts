@@ -40,6 +40,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SponsorListComponent } from './sponsor-list/sponsor-list.component';
 import { ImpListComponent } from './imp-list/imp-list.component';
 import { AcListComponent } from './ac-list/ac-list.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { AcListComponent } from './ac-list/ac-list.component';
     SidebarComponent,
     SponsorListComponent,
     ImpListComponent,
-    AcListComponent
+    AcListComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
