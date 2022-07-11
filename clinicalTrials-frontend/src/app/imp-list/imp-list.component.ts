@@ -9,7 +9,10 @@ import { TrialDetailsComponent } from '../trial-details/trial-details.component'
 @Component({
   selector: 'app-imp-list',
   templateUrl: './imp-list.component.html',
-  styleUrls: ['./imp-list.component.css']
+  styleUrls: ['./imp-list.component.css'],
+  host: {
+    class: 'list-container'
+  },
 })
 export class ImpListComponent implements OnInit {
   imps!: Observable<Imp[]>;

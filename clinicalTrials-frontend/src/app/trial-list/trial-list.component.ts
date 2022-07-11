@@ -15,7 +15,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-trial-list',
   host: {
-    class: 'trial-list-container'
+    class: 'list-container'
   },
   templateUrl: './trial-list.component.html',
   styleUrls: ['./trial-list.component.css']

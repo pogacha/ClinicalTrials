@@ -1,0 +1,20 @@
+.cas-text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
+.cas-text-container h4,
+.cas-text-container p {
+    margin: 0px 8px;
+}
+
+.cas-list {
+    overflow: auto;
+    max-height: calc(100vh - 192px)
+}

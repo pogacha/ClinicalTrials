@@ -1,1 +1,15 @@
-<p>ac-list works!</p>
+<mat-list class="cas-list">
+    <mat-list-item class="header">
+        <h4>Cas Number</h4>
+        <h4>EV Substance Code</h4>
+        <h4>Substance Name</h4>
+    </mat-list-item>
+    <mat-list-item *ngFor="let ac of activeSubstances | async">
+        <div class="cas-text-container">
+            <p mat-line> {{ac.casNumber}} </p>
+            <p mat-line> {{ac.evSubstanceCode}} </p>
+            <p mat-line> {{ac.substanceName}} </p>
+        </div>
+        <mat-divider [inset]="true" *ngIf="!ac"></mat-divider>
+    </mat-list-item>
+</mat-list>

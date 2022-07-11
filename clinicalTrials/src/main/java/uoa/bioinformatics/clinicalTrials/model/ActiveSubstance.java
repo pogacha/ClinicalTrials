@@ -13,45 +13,44 @@ import javax.persistence.Table;
 public class ActiveSubstance {
 
     @Id
-    @Column(name="cas_number", nullable = false)
-    private String cas_number;
-    @Column(name="ev_substance_code", nullable = false)
-    private String ev_substance_code;
-    @Column(name="substance_name", nullable = false)
-    private String substance_name;
-
+    @Column(name="casNumber", nullable = false)
+    private String casNumber;
+    @Column(name="evSubstanceCode", nullable = false)
+    private String evSubstanceCode;
+    @Column(name="substanceName", nullable = false)
+    private String substanceName;
 
     @JsonCreator
-    public ActiveSubstance(String cas_number, String ev_substance_code, String substance_name) {
-        this.cas_number = cas_number;
-        this.ev_substance_code = ev_substance_code;
-        this.substance_name = substance_name;
+    public ActiveSubstance(String casNumber, String evSubstanceCode, String substanceName) {
+        this.casNumber = casNumber;
+        this.evSubstanceCode = evSubstanceCode;
+        this.substanceName = substanceName;
     }
 
     public ActiveSubstance() {
     }
 
-    public String getCas_number() {
-        return cas_number;
+    public String getCasNumber() {
+        return casNumber;
     }
 
-    public void setCas_number(String cas_number) {
-        this.cas_number = cas_number;
+    public void setCasNumber(String casNumber) {
+        this.casNumber = casNumber;
     }
 
-    public String getEv_substance_code() {
-        return ev_substance_code;
+    public String getEvSubstanceCode() {
+        return evSubstanceCode;
     }
 
-    public void setEv_substance_code(String ev_substance_code) {
-        this.ev_substance_code = ev_substance_code;
+    public void setEvSubstanceCode(String evSubstanceCode) {
+        this.evSubstanceCode = evSubstanceCode;
     }
 
-    public String getSubstance_name() {
-        return substance_name;
+    public String getSubstanceName() {
+        return substanceName;
     }
 
-    public void setSubstance_name(String substance_name) {
-        this.substance_name = substance_name;
+    public void setSubstanceName(String substanceName) {
+        this.substanceName = substanceName;
     }
 }

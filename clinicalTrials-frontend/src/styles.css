@@ -62,10 +62,6 @@ body {
     background-color: #9AA899;
 }
 
-.trial-list-container {
-    width: 100%;
-}
-
 .mat-button.mat-primary.menu-item {
     color: white;
     margin: 6px 0;
@@ -81,4 +77,8 @@ body {
     font-size: 40px;
     width: 48px;
     height: 48px;
+}
+
+.list-container {
+    width: 100%;
 }
