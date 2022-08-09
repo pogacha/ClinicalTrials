@@ -6,7 +6,17 @@
   padding: 4px 8px;
   width: 1000px;
   flex-wrap: wrap;
+}
 
+.sponsors-section {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sponsors-section h2 {
+  margin: 0;
 }
 
 
