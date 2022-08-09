@@ -21,9 +21,12 @@ import { UserService } from '../user.service';
   styleUrls: ['./trial-list.component.css']
 })
 export class TrialListComponent implements OnInit {
-  trials!: Observable<Trial[]>;
+  allTrials: Trial[] = [];
+  trials: Trial[] = [];
+
   userObservable: any;
   searchText = '';
+  term = '';
 
 
   constructor(private trialService: TrialService,
@@ -39,7 +42,29 @@ export class TrialListComponent implements OnInit {
   }
 
   loadData() {
-    this.trials = this.trialService.getTrialsList();
+    this.trialService.getTrialsList()
+      .subscribe(
+        data => {
+          this.trials = data
+          this.allTrials = data
+        },
+        error => { this._snackBar.open(error, 'Close'); });
+  }
+
+
+  search(value: string): void {
+    value = value.toLowerCase()
+    this.trials = this.allTrials.filter((val) =>
+      val.eudraCTNumber.toLowerCase().includes(value)
+    ).concat(this.allTrials.filter((val) =>
+      val.trialStatus.toLowerCase().includes(value))).concat(this.allTrials.filter((val) =>
+        val.trialTypePhase.toLowerCase().includes(value))).concat(this.allTrials.filter((val) =>
+          val.estimatedDuration.toLowerCase().includes(value))).concat(this.allTrials.filter((val) =>
+            val.therapeuticArea.toLowerCase().includes(value)));
+
+    const key = 'eudraCTNumber';
+    this.trials = [...new Map(this.trials.map(item =>
+      [item[key], item])).values()];
   }
 
   moreTrial(id: String) {

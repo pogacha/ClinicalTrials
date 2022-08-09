@@ -2,6 +2,11 @@
     <h2>Imps</h2>
 </section>
 <div>
+    <mat-form-field class="searchbar" appearance="fill">
+        <mat-label>Search Imp</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input [(ngModel)]="term" (input)="search(term)" matInput placeholder="EudraCTNumber3">
+    </mat-form-field>
     <mat-list class="imp-list">
         <mat-list-item class="header">
             <h4>Trial</h4>
@@ -9,21 +14,24 @@
             <h4>Trade Name</h4>
             <h4>Product Name</h4>
             <h4>Role</h4>
-            <h4>More Info</h4>
             <h4>Has Marketing Authentication (Country)</h4>
             <h4>Pharm Form</h4>
         </mat-list-item>
-        <mat-list-item *ngFor="let imp of imps | async">
+        <mat-list-item *ngFor="let imp of imps | impSearchFilter:term">
             <div class="imp-text-container">
-                <p mat-line> {{imp.eudraCTNumber}} </p>
-                <p mat-line> {{imp.routesOfAdm}} </p>
-                <p mat-line> {{imp.tradeName}} </p>
-                <p mat-line> {{imp.productName}} </p>
-                <p mat-line> {{imp.impRole}} </p>
-                <p mat-line> {{imp.moreInfo}}</p>
-                <p mat-line>{{imp.hasMarketingAuth}} ({{imp.countryHasMarketingAuth}})</p>
-                <p mat-line>{{imp.pharmForm}}</p>
+                <p mat-line title="{{imp.eudraCTNumber}}"> {{imp.eudraCTNumber}} </p>
+                <p mat-line title="{{imp.routesOfAdm}}"> {{imp.routesOfAdm}} </p>
+                <p mat-line title="{{imp.tradeName}}"> {{imp.tradeName}} </p>
+                <p mat-line title="{{imp.productName}}"> {{imp.productName}} </p>
+                <p mat-line title="{{imp.impRole}}"> {{imp.impRole}} </p>
+                <p mat-line title="{{imp.hasMarketingAuth}} ({{imp.countryHasMarketingAuth}})">{{imp.hasMarketingAuth}}
+                    ({{imp.countryHasMarketingAuth}})</p>
+                <p mat-line title="{{imp.pharmForm}}">{{imp.pharmForm}}</p>
                 <div class="button-container">
+                    <button mat-icon-button color="primary" (click)="showMoreInfo(imp.impId)"
+                        aria-label="Show Active Substances" title="Show More Info">
+                        <mat-icon>more</mat-icon>
+                    </button>
                     <button mat-icon-button color="primary" (click)="showActiveSubstances(imp.impId)"
                         aria-label="Show Active Substances" title="Show Active Substances">
                         <mat-icon>more</mat-icon>

@@ -2,6 +2,11 @@
     <h2>Protocols</h2>
 </section>
 <div>
+    <mat-form-field class="searchbar" appearance="fill">
+        <mat-label>Search Protocol</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input [(ngModel)]="term" (input)="search(term)" matInput placeholder="ProtocolCodeNumber">
+    </mat-form-field>
     <mat-list>
         <mat-list-item class="header">
             <h4>ProtocolCodeNumber</h4>
@@ -11,14 +16,14 @@
             <h4>main objective</h4>
             <h4>safetyObjective</h4>
         </mat-list-item>
-        <mat-list-item *ngFor="let protocol of this.protocols | async">
+        <mat-list-item *ngFor="let protocol of this.protocols | protocolSearchFilter: term">
             <div class="protocol-text-container">
-                <p mat-line> {{protocol.protocolCodeNumber}} </p>
-                <p mat-line> {{protocol.eudraCTNumber}} </p>
-                <p mat-line> {{protocol.fullTitle}} </p>
-                <p mat-line> {{protocol.simplifiedTitle}} </p>
-                <p mat-line> {{protocol.mainObjective}}</p>
-                <p mat-line>{{protocol.safetyObjective}}</p>
+                <p mat-line title="{{protocol.protocolCodeNumber}}"> {{protocol.protocolCodeNumber}} </p>
+                <p mat-line title="{{protocol.eudraCTNumber}}"> {{protocol.eudraCTNumber}} </p>
+                <p mat-line title="{{protocol.fullTitle}}"> {{protocol.fullTitle}} </p>
+                <p mat-line title="{{protocol.simplifiedTitle}}"> {{protocol.simplifiedTitle}} </p>
+                <p mat-line title="{{protocol.mainObjective}}"> {{protocol.mainObjective}}</p>
+                <p mat-line title="{{protocol.safetyObjective}}">{{protocol.safetyObjective}}</p>
             </div>
         </mat-list-item>
     </mat-list>

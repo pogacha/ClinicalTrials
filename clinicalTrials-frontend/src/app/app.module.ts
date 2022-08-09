@@ -40,7 +40,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SponsorListComponent } from './sponsor-list/sponsor-list.component';
 import { ImpListComponent } from './imp-list/imp-list.component';
 import { AcListComponent } from './ac-list/ac-list.component';
-import { FilterPipe } from './filter.pipe';
+import { ProtocolSearchFilterPipe } from './protocol-search-filter.pipe';
+import { TrialSearchFilterPipe } from './trial-search-filter.pipe';
+import { SponsorSearchFilterPipe } from './sponsor-search-filter.pipe';
+import { ImpSearchFilterPipe } from './imp-search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,10 @@ import { FilterPipe } from './filter.pipe';
     SponsorListComponent,
     ImpListComponent,
     AcListComponent,
-    FilterPipe
+    ProtocolSearchFilterPipe,
+    TrialSearchFilterPipe,
+    SponsorSearchFilterPipe,
+    ImpSearchFilterPipe
   ],
   imports: [
     BrowserModule,

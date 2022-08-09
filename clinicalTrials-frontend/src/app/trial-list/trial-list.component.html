@@ -8,34 +8,24 @@
     <mat-form-field class="searchbar" appearance="fill">
         <mat-label>Search Trial</mat-label>
         <mat-icon matPrefix>search</mat-icon>
-        <input matInput placeholder="EudraCTNumber3">
+        <input [(ngModel)]="term" (input)="search(term)" matInput placeholder="EudraCTNumber3">
     </mat-form-field>
     <mat-list class="trial-list">
         <mat-list-item class="header">
             <h4>EudraCTNumber</h4>
             <h4>Trial Status</h4>
-            <h4>Design of the Trial</h4>
             <h4>Trial Type Phase</h4>
-            <h4>Scope of the Trial</h4>
             <h4>Estimated Duration</h4>
-            <h4>Link</h4>
             <h4>therapeutic Area</h4>
-            <h4>Number of Subjects</h4>
-            <h4>First Added Date</h4>
             <h4>Tools</h4>
         </mat-list-item>
-        <mat-list-item *ngFor="let trial of trials | async">
+        <mat-list-item *ngFor="let trial of trials | trialSearchFilter: term;">
             <div class="trial-text-container">
-                <p mat-line>{{trial.eudraCTNumber}}</p>
-                <p mat-line> {{trial.trialStatus}} </p>
-                <p mat-line> {{trial.designOfTheTrial}} </p>
-                <p mat-line> {{trial.trialTypePhase}} </p>
-                <p mat-line> {{trial.scopeOfTheTrial}} </p>
-                <p mat-line> {{trial.estimatedDuration}}</p>
-                <p mat-line>{{trial.link}}</p>
-                <p mat-line>{{trial.therapeuticArea}}</p>
-                <p mat-line>{{trial.numberOfSubjects}}</p>
-                <p mat-line>{{trial.firstAddedDate | date:'dd-MM-yyyy'}}</p>
+                <p mat-line title="{{trial.eudraCTNumber}}">{{trial.eudraCTNumber}}</p>
+                <p mat-line title="{{trial.trialStatus}}"> {{trial.trialStatus}} </p>
+                <p mat-line title="{{trial.trialTypePhase}}"> {{trial.trialTypePhase}} </p>
+                <p mat-line title="{{trial.estimatedDuration}}"> {{trial.estimatedDuration}}</p>
+                <p mat-line title="{{trial.therapeuticArea}}">{{trial.therapeuticArea}}</p>
                 <div class="button-container">
                     <button mat-icon-button color="primary" (click)="moreTrial(trial.eudraCTNumber)"
                         aria-label="More info Trial" title="more info for Trial">

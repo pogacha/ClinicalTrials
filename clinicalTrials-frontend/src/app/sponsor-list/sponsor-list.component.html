@@ -2,6 +2,11 @@
     <h2>Sponsors</h2>
 </section>
 <div>
+    <mat-form-field class="searchbar" appearance="fill">
+        <mat-label>Search Sponsor</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input [(ngModel)]="term" (input)="search(term)" matInput placeholder="Sponsorid">
+    </mat-form-field>
     <mat-list class="sponsorList">
         <mat-list-item class="header">
             <h4>Sponsor Id</h4>
@@ -10,12 +15,12 @@
             <h4>Supporting Organisation</h4>
 
         </mat-list-item>
-        <mat-list-item *ngFor="let sponsor of this.sponsors | async">
+        <mat-list-item *ngFor="let sponsor of this.sponsors | sponsorSearchFilter: term">
             <div class="sponsorTextContainer">
-                <p mat-line> {{sponsor.sponsorId}} </p>
-                <p mat-line> {{sponsor.sponsorName}} </p>
-                <p mat-line> {{sponsor.sponsorStatus}} </p>
-                <p mat-line> {{sponsor.nameOfSupportingOrg}} </p>
+                <p mat-line title="{{sponsor.sponsorId}}"> {{sponsor.sponsorId}} </p>
+                <p mat-line title="{{sponsor.sponsorName}}"> {{sponsor.sponsorName}} </p>
+                <p mat-line title="{{sponsor.sponsorStatus}}"> {{sponsor.sponsorStatus}} </p>
+                <p mat-line title="{{sponsor.nameOfSupportingOrg}}"> {{sponsor.nameOfSupportingOrg}} </p>
 
             </div>
         </mat-list-item>
