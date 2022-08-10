@@ -19,14 +19,7 @@
   margin: 0;
 }
 
-.protocol-text-container>* {
-  flex: 0 20 10%;
-}
 
-.protocol-text-container h4,
-.protocol-text-container p {
-  margin: 0px 8px;
-}
 
 .trials-section h2 {
   margin: 0;
@@ -39,4 +32,10 @@ button:hover {
 
 h4 {
   font-weight: bold;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  padding: 4px 8px;
 }

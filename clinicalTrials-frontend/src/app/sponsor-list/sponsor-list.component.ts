@@ -17,6 +17,7 @@ import { SponsorService } from '../sponsor.service';
 export class SponsorListComponent implements OnInit {
   sponsors: Sponsor[] = [];
   allSponsors: Sponsor[] = [];
+  displayedColumns: string[] = ['sponsorId', 'sponsorName', 'sponsorStatus', 'nameOfSupportingOrg'];
   term = '';
 
 

@@ -1,15 +1,25 @@
-<mat-list class="cas-list">
-    <mat-list-item class="header">
-        <h4>Cas Number</h4>
-        <h4>EV Substance Code</h4>
-        <h4>Substance Name</h4>
-    </mat-list-item>
-    <mat-list-item *ngFor="let ac of activeSubstances | async">
-        <div class="cas-text-container">
-            <p mat-line> {{ac.casNumber}} </p>
-            <p mat-line> {{ac.evSubstanceCode}} </p>
-            <p mat-line> {{ac.substanceName}} </p>
-        </div>
-        <mat-divider [inset]="true" *ngIf="!ac"></mat-divider>
-    </mat-list-item>
-</mat-list>
+<h1 mat-dialog-title>Active Substances</h1>
+<div mat-dialog-content>
+    <mat-spinner *ngIf="this.isLoading"></mat-spinner>
+    <div *ngIf="!this.isLoading" class="table-container">
+        <table mat-table [dataSource]="activeSubstances">
+            <ng-container matColumnDef="casNumber">
+                <th mat-header-cell *matHeaderCellDef> Cas Number </th>
+                <td mat-cell *matCellDef="let element"> {{element.casNumber}} </td>
+            </ng-container>
+            <ng-container matColumnDef="evSubstanceCode">
+                <th mat-header-cell *matHeaderCellDef> Ev Substance Code </th>
+                <td mat-cell *matCellDef="let element"> {{element.evSubstanceCode}} </td>
+            </ng-container>
+            <ng-container matColumnDef="substanceName">
+                <th mat-header-cell *matHeaderCellDef> Substance Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.substanceName}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+</div>

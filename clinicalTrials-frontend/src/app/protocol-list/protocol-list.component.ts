@@ -17,6 +17,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ProtocolListComponent implements OnInit {
   protocols: Protocol[] = [];
   allProtocols: Protocol[] = [];
+  displayedColumns: string[] = ['protocolCodeNumber', 'eudraCTNumber', 'fullTitle', 'simplifiedTitle', 'mainObjective', 'safetyObjective'];
   term = '';
 
 

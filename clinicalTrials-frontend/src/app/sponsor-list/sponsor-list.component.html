@@ -7,22 +7,26 @@
         <mat-icon matPrefix>search</mat-icon>
         <input [(ngModel)]="term" (input)="search(term)" matInput placeholder="Sponsorid">
     </mat-form-field>
-    <mat-list class="sponsorList">
-        <mat-list-item class="header">
-            <h4>Sponsor Id</h4>
-            <h4>Sponsor Name</h4>
-            <h4>Sponsor Status</h4>
-            <h4>Supporting Organisation</h4>
-
-        </mat-list-item>
-        <mat-list-item *ngFor="let sponsor of this.sponsors | sponsorSearchFilter: term">
-            <div class="sponsorTextContainer">
-                <p mat-line title="{{sponsor.sponsorId}}"> {{sponsor.sponsorId}} </p>
-                <p mat-line title="{{sponsor.sponsorName}}"> {{sponsor.sponsorName}} </p>
-                <p mat-line title="{{sponsor.sponsorStatus}}"> {{sponsor.sponsorStatus}} </p>
-                <p mat-line title="{{sponsor.nameOfSupportingOrg}}"> {{sponsor.nameOfSupportingOrg}} </p>
-
-            </div>
-        </mat-list-item>
-    </mat-list>
+    <div class="table-container">
+        <table mat-table [dataSource]="sponsors">
+            <ng-container matColumnDef="sponsorId">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.sponsorId}} </td>
+            </ng-container>
+            <ng-container matColumnDef="sponsorName">
+                <th mat-header-cell *matHeaderCellDef> Sponsor Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.sponsorName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="sponsorStatus">
+                <th mat-header-cell *matHeaderCellDef> Sponsor Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.sponsorStatus}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nameOfSupportingOrg">
+                <th mat-header-cell *matHeaderCellDef> Supporting Organisation </th>
+                <td mat-cell *matCellDef="let element"> {{element.nameOfSupportingOrg}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
 </div>

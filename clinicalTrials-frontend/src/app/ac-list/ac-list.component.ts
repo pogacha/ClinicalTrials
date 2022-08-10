@@ -15,6 +15,7 @@ import { Observable } from 'rxjs';
 export class AcListComponent implements OnInit {
 
   activeSubstances !: Observable<ActiveSubstance[]>;
+  displayedColumns: string[] = ['casNumber', 'evSubstanceCode', 'substanceName'];
 
   isLoading = true;
   constructor(private impService: ImpService, @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -26,10 +27,7 @@ export class AcListComponent implements OnInit {
 
   getActiveSubstances(impId: any): void {
     this.activeSubstances = this.impService.getImpsActiveSubstances(impId);
-
   }
-
-
 
 }
 

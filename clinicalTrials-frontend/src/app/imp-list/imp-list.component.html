@@ -7,38 +7,58 @@
         <mat-icon matPrefix>search</mat-icon>
         <input [(ngModel)]="term" (input)="search(term)" matInput placeholder="EudraCTNumber3">
     </mat-form-field>
-    <mat-list class="imp-list">
-        <mat-list-item class="header">
-            <h4>Trial</h4>
-            <h4>Routes Of Administration</h4>
-            <h4>Trade Name</h4>
-            <h4>Product Name</h4>
-            <h4>Role</h4>
-            <h4>Has Marketing Authentication (Country)</h4>
-            <h4>Pharm Form</h4>
-        </mat-list-item>
-        <mat-list-item *ngFor="let imp of imps | impSearchFilter:term">
-            <div class="imp-text-container">
-                <p mat-line title="{{imp.eudraCTNumber}}"> {{imp.eudraCTNumber}} </p>
-                <p mat-line title="{{imp.routesOfAdm}}"> {{imp.routesOfAdm}} </p>
-                <p mat-line title="{{imp.tradeName}}"> {{imp.tradeName}} </p>
-                <p mat-line title="{{imp.productName}}"> {{imp.productName}} </p>
-                <p mat-line title="{{imp.impRole}}"> {{imp.impRole}} </p>
-                <p mat-line title="{{imp.hasMarketingAuth}} ({{imp.countryHasMarketingAuth}})">{{imp.hasMarketingAuth}}
-                    ({{imp.countryHasMarketingAuth}})</p>
-                <p mat-line title="{{imp.pharmForm}}">{{imp.pharmForm}}</p>
-                <div class="button-container">
-                    <button mat-icon-button color="primary" (click)="showMoreInfo(imp.impId)"
-                        aria-label="Show Active Substances" title="Show More Info">
-                        <mat-icon>more</mat-icon>
-                    </button>
-                    <button mat-icon-button color="primary" (click)="showActiveSubstances(imp.impId)"
-                        aria-label="Show Active Substances" title="Show Active Substances">
-                        <mat-icon>more</mat-icon>
-                    </button>
-                </div>
-            </div>
-            <mat-divider [inset]="true" *ngIf="!imp"></mat-divider>
-        </mat-list-item>
-    </mat-list>
+    <div class="table-container">
+        <table mat-table [dataSource]="imps">
+            <ng-container matColumnDef="impId">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.impId}} </td>
+            </ng-container>
+            <ng-container matColumnDef="eudraCTNumber">
+                <th mat-header-cell *matHeaderCellDef> EudraCTNumber </th>
+                <td mat-cell *matCellDef="let element"> {{element.eudraCTNumber}} </td>
+            </ng-container>
+            <ng-container matColumnDef="routesOfAdm">
+                <th mat-header-cell *matHeaderCellDef> Routes Of Administration</th>
+                <td mat-cell *matCellDef="let element"> {{element.routesOfAdm}} </td>
+            </ng-container>
+            <ng-container matColumnDef="tradeName">
+                <th mat-header-cell *matHeaderCellDef> Trade Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.tradeName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="productName">
+                <th mat-header-cell *matHeaderCellDef> Product Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="impRole">
+                <th mat-header-cell *matHeaderCellDef> Role </th>
+                <td mat-cell *matCellDef="let element"> {{element.impRole}} </td>
+            </ng-container>
+            <ng-container matColumnDef="marketingAuth">
+                <th mat-header-cell *matHeaderCellDef> Has Marketing Authentication (Country) </th>
+                <td mat-cell *matCellDef="let element"> {{element.hasMarketingAuth}}
+                    ({{element.countryHasMarketingAuth}}) </td>
+            </ng-container>
+            <ng-container matColumnDef="pharmForm">
+                <th mat-header-cell *matHeaderCellDef> Pharm Form </th>
+                <td mat-cell *matCellDef="let element"> {{element.pharmForm}} </td>
+            </ng-container>
+            <ng-container matColumnDef="tools">
+                <th mat-header-cell *matHeaderCellDef> Tools </th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="button-container">
+                        <button mat-icon-button color="primary" (click)="showMoreInfo(element.impId)"
+                            aria-label="Show Active Substances" title="Show More Info">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" (click)="showActiveSubstances(element.impId)"
+                            aria-label="Show Active Substances" title="Show Active Substances">
+                            <mat-icon>science</mat-icon>
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
 </div>

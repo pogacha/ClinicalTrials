@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+    <mat-spinner *ngIf="this.isLoading"></mat-spinner>
+    <div *ngIf="!this.isLoading" class="table-container">
+        <mat-list>
+            <div *ngFor="let item of this.list">
+                <mat-list-item> {{item}}</mat-list-item>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-list>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+</div>

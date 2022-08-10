@@ -23,6 +23,7 @@ import { UserService } from '../user.service';
 export class TrialListComponent implements OnInit {
   allTrials: Trial[] = [];
   trials: Trial[] = [];
+  displayedColumns: string[] = ['eudractNumber', 'trialStatus', 'trialTypePhase', 'estimatedDuration', 'therapeuticArea', 'tools'];
 
   userObservable: any;
   searchText = '';

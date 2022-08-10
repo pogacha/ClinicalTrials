@@ -20,16 +20,6 @@
 }
 
 
-.sponsorTextContainer h4,
-.sponsorTextContainer p {
-  margin: 0px 8px;
-}
-
-.sponsorList {
-  overflow: auto;
-  max-height: calc(100vh - 192px)
-}
-
 .trials-section h2 {
   margin: 0;
 }

@@ -44,6 +44,7 @@ import { ProtocolSearchFilterPipe } from './protocol-search-filter.pipe';
 import { TrialSearchFilterPipe } from './trial-search-filter.pipe';
 import { SponsorSearchFilterPipe } from './sponsor-search-filter.pipe';
 import { ImpSearchFilterPipe } from './imp-search-filter.pipe';
+import { ImpMoreInfoComponent } from './imp-more-info/imp-more-info.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { ImpSearchFilterPipe } from './imp-search-filter.pipe';
     ProtocolSearchFilterPipe,
     TrialSearchFilterPipe,
     SponsorSearchFilterPipe,
-    ImpSearchFilterPipe
+    ImpSearchFilterPipe,
+    ImpMoreInfoComponent
   ],
   imports: [
     BrowserModule,

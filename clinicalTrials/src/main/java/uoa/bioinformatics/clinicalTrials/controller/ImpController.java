@@ -8,6 +8,7 @@ import uoa.bioinformatics.clinicalTrials.exception.ResourceNotFoundException;
 import uoa.bioinformatics.clinicalTrials.model.Imp;
 
 import uoa.bioinformatics.clinicalTrials.model.Protocol;
+import uoa.bioinformatics.clinicalTrials.model.Trial;
 import uoa.bioinformatics.clinicalTrials.repository.ImpRepository;
 
 import java.util.List;
@@ -31,4 +32,13 @@ public class ImpController {
         Imp imp = impRepository.findImpByEudraCTNumber(eudraCTNUmber);
         return ResponseEntity.ok().body(imp);
     }
+
+    @GetMapping("/imps/{id}")
+    public ResponseEntity<Imp> getTrialById(@PathVariable("id") String id)
+            throws ResourceNotFoundException {
+        Imp imp = impRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Imp not found for this id :: " + id));
+        return ResponseEntity.ok().body(imp);
+    }
+
 }

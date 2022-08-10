@@ -86,3 +86,16 @@ body {
 .mat-form-field.searchbar {
     width: calc(100% - 45px)
 }
+
+table {
+    width: calc(100% - 45px);
+    box-shadow: none;
+    margin: 4px 16px;
+}
+
+.table-container {
+    position: relative;
+    min-height: 200px;
+    max-height: 450px;
+    overflow: auto;
+}

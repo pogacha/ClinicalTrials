@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
 import { AcListComponent } from '../ac-list/ac-list.component';
 import { Imp } from '../classes/imp';
+import { ImpMoreInfoComponent } from '../imp-more-info/imp-more-info.component';
 import { ImpService } from '../imp.service';
-import { TrialDetailsComponent } from '../trial-details/trial-details.component';
+
 
 @Component({
   selector: 'app-imp-list',
@@ -18,6 +18,7 @@ import { TrialDetailsComponent } from '../trial-details/trial-details.component'
 export class ImpListComponent implements OnInit {
   imps: Imp[] = [];
   allImps: Imp[] = [];
+  displayedColumns: string[] = ['impId', 'eudraCTNumber', 'tradeName', 'impRole', 'marketingAuth', 'pharmForm', 'tools'];
   term = '';
 
   constructor(private impService: ImpService, private dialog: MatDialog, private _snackBar: MatSnackBar) { }
@@ -62,7 +63,11 @@ export class ImpListComponent implements OnInit {
   }
 
   showMoreInfo(id: String) {
-
+    this.dialog.open(ImpMoreInfoComponent, {
+      data: {
+        imp: id,
+      },
+    });
   }
 
 
