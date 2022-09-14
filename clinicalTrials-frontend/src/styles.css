@@ -99,3 +99,13 @@ table {
     max-height: 450px;
     overflow: auto;
 }
+
+.mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+    display: block;
+    min-height: 30px;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    padding: 12px 0 8px !important;
+    height: auto !important;
+}
