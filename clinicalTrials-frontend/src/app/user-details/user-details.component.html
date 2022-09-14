@@ -1,6 +1,8 @@
 <mat-spinner *ngIf="this.isLoading"></mat-spinner>
-<div *ngIf="!this.isLoading">
-    <h2>User Info</h2>
+<div class='user-container' *ngIf="!this.isLoading">
+    <section class="sponsors-section">
+        <h2>User Info</h2>
+    </section>
     <mat-divider></mat-divider>
     <mat-list>
         <mat-list-item>User Id: {{user.userId}}</mat-list-item>
@@ -16,7 +18,9 @@
         <mat-list-item>Address: {{user.address}}</mat-list-item>
     </mat-list>
 
-    <h3>Sponsor</h3>
+    <section class="sponsors-section">
+        <h3>Sponsor</h3>
+    </section>
     <mat-divider></mat-divider>
     <mat-list>
         <mat-list-item>Name Of Supporting Organisation: {{sponsor.nameOfSupportingOrg}} </mat-list-item>
