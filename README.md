@@ -18,7 +18,7 @@ In order to run ClinicalTrials you will need
 ``` ng serve ``` and open localhost:4200/ to run the project
 
 ## API
-At  https://www.getpostman.com/collections/63532706168cc7c419d8 there are examples for most of the calls that are used
+At  https://web.postman.co/workspace/My-Workspace~a2b39f53-cfbe-414b-8a73-f27700d93be1/overview there are examples for most of the calls that are used
 
 
 ## Annex
